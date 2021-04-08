@@ -1,0 +1,58 @@
+{
+  "pages":[
+
+    "pages/main/main",
+    "pages/jiyibi/jiyibi",
+    
+    "pages/zhichu/zhichu",
+    "pages/index/index",
+    "pages/logs/logs"
+  
+    
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#00FFFF",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true  
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/main/main",
+      "text": "图表",
+      "iconPath": "icon/tubiao.png",
+      "selectedIconPath": "icon/tubiao.png"
+    },
+    {
+      "pagePath": "pages/main/main",
+      "text": "流水",
+      "iconPath": "icon/liushui.png",
+      "selectedIconPath": "icon/liushui.png"
+    },
+    {
+      "pagePath": "pages/jiyibi/jiyibi",
+      "text": "记一笔",
+      "iconPath": "icon/jizhangben.png",
+      "selectedIconPath": "icon/jizhangben.png"
+    
+    },
+
+    {
+      "pagePath": "pages/main/main",
+      "text": "预算",
+      "iconPath": "icon/yusuanguanli.png",
+      "selectedIconPath": "icon/yusuanguanli.png"
+    },
+    {
+      "pagePath": "pages/main/main",
+      "text": "设置",
+      "iconPath": "icon/shezhi.png",
+      "selectedIconPath": "icon/shezhi.png"
+    }
+  ]
+  },
+
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
