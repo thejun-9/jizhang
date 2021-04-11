@@ -1,0 +1,10 @@
+<!--pages/QueryAccountinfo/QueryAccountinfo.wxml-->
+<view class="loginBtnView"> 
+ <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="amout">金额升序</button> 
+ <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="amoutDesc">金额降序</button> 
+ <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="date">日期升序</button> 
+ <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="dateDesc">日期降序</button> 
+</view>
+<view wx:for="{{list}}" wx:key="list">
+  <view>{{item}}</view>
+</view> 

@@ -1,0 +1,73 @@
+<!-- <view class="container"> -->
+    <!-- tab导航栏 -->
+    <!-- scroll-left属性可以控制滚动条位置 -->
+    <!-- scroll-with-animation滚动添加动画过渡 -->
+  <view>
+    <scroll-view scroll-x="true" class="nav" scroll-left="{{navScrollLeft}}" scroll-with-animation="{{true}}">
+        <block wx:for="{{navData}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+            <view class="nav-item {{currentTab == idx ?'active':''}}"  data-current="{{idx}}" bindtap="switchNav">
+              {{navItem.text}}              
+            </view>
+        </block>        
+    </scroll-view>
+ 
+      <view wx:if="{{currentTab==0}}">
+        <view class="row-box">
+          <view wx:for="{{picfood}}"
+              wx:key="id"
+              class="box {{item.isActive?'pic-active':''}}"
+              bindtap="handleFood"
+              data-index="{{index}}">
+              <!-- <view class="box"> -->
+                <image class="pic" src="{{item.url}}"></image>
+                <view class="txt">{{item.name}}</view>   
+              <!-- </view> -->
+
+          </view>
+
+        </view>
+        <!-- <view class="row-box" >
+          <view class="box" bindtap="click">
+            <image class="pic" src="../../icon/lingshi.png"></image>
+            <view class="txt">零食</view>
+          </view>
+         <view class="box" >
+          <image class="pic" src="../../icon/_waimai.png"></image>
+          <view class="txt">外卖</view>
+          </view>
+        
+        <view class="box">
+          <image class="pic" src="../../icon/shuiguo.png"></image>
+          <view class="txt">水果</view>          
+        </view>  
+      </view>
+      <view class="row-box">
+        <view class="box">
+          <image class="pic" src="../../icon/yanjiu.png"></image>
+          <view class="txt">烟酒</view>          
+        </view> 
+        <view class="box">
+          <image class="pic" src="../../icon/shiwu1.png"></image>
+          <view class="txt">三餐</view>          
+        </view> 
+
+      </view> -->
+    </view>
+
+    <view wx:if="{{currentTab==1}}">
+        <view class="row-box">
+          <view wx:for="{{pictravel}}"
+              wx:key="id"
+              class="box {{item.isActive?'pic-active':''}}"
+              bindtap="handleTravel"
+              data-index="{{index}}">
+              <!-- <view class="box"> -->
+                <image class="pic" src="{{item.url}}"></image>
+                <view class="txt">{{item.name}}</view>   
+              <!-- </view> -->
+          </view>
+        </view>
+      </view>
+      
+</view>
+<!-- </view> -->

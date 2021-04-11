@@ -1,0 +1,16 @@
+/* pages/demo1/demo1.wxss */
+/* image{ 
+  box-sizing: border-box;
+  width: 20rpx;
+  height: 20rpx;
+} */
+.jx_card{ width: 200rpx; 
+  height: 200rpx; 
+  background-color:#e6e6e6;
+  position: relative} 
+.jxlogo{ top: 47.5rpx; 
+  margin-left: 50rpx; 
+  width: 200rpx; 
+  height: 200rpx; 
+  float: left;
+  position: absolute;}

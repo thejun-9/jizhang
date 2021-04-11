@@ -1,0 +1,31 @@
+
+<view class='page_box' catchtap='hindKeyboard'>
+    <view class='input_view' catchtap='hindKeyboard'>
+        <text class='title'>金额</text>
+        <view class='input_box' catchtap='showKeyboard'>
+            <text class='input_label'>￥</text>
+            <text class='content' wx:if="{{content}}">{{content}}</text>
+            <view class='className' wx:if="{{keyShow}}"></view>
+            <text class='content place' wx:if="{{!content}}">请输入金额</text>
+        </view>
+    </view>
+    <scroll bindsend="handle">
+        <!-- <block wx:if="{{navData[0].id==cur}}">1</block>
+        <block wx:if="{{navData[1].id==cur}}">2</block> -->
+
+    </scroll> 
+    <view class='keyboard {{keyShow&&"hind_box"}}'>
+        <view class='key_box'>
+            <view class="number_box">
+                <view class='keys {{index==9?"zero":""}}' wx:for='{{KeyboardKeys}}' wx:key='this' catchtap='keyTap' data-keys='{{item}}'>{{item}}</view>
+            </view>
+            <view class="btn_box">
+                <view class='keys' catchtap='keyTap' data-keys='<'>
+               		<!-- 根据项目实际路径引用 -->
+                    <image mode="widthFix" src="../../icon/delete_icon.png"></image>
+                </view>
+                <view class="keys pay_btn" catchtap='payTap'>保存</view>
+            </view>
+        </view>
+    </view>
+</view>

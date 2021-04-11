@@ -1,0 +1,13 @@
+<view class="column-box">
+  <view wx:for="{{part}}" 
+        wx:key="id"
+        bindtap="bindHandle"
+        class="box"
+  >
+    <image class="pic" src="{{item.icon}}"></image>
+
+  </view>
+
+
+
+</view>

@@ -1,0 +1,92 @@
+/**index.wxss**/
+page{
+  width: 100%;
+  height: 100%;
+}
+.container{
+  /* width: 100%;
+  height: 100%; */
+}
+
+.nav {
+  height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 80rpx;
+  background: white;
+  font-size: 16px;
+  white-space: nowrap;
+  position: relative; 
+  top: 0;  
+  left: 0;
+  z-index: 99;
+}
+
+.nav-item {
+  width: 20%;
+  display: inline-block;
+  text-align: center;
+  border-color: teal;
+}
+.nav-item.active{
+  /* background-color:ivory ; */
+  font-weight: 700;
+}
+.tab-box{
+  background: greenyellow;
+  padding-top: 80rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+.tab-content{
+  overflow-y: scroll;
+}
+.row-box{
+  display: flex;
+  /* justify-content: center;
+  align-items:center; */
+  background-color: whitesmoke;
+  width:320px;
+  flex-wrap: wrap;
+
+  /* width:1500rpx; */
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  height: 70px;
+  box-sizing: border-box;
+  /* text-align: center;
+  justify-content: center; */
+  align-items:center;
+  padding:0,20px;
+  background-color: whitesmoke;
+  /* border-radius: 20rpx ;
+  border:1px solid white; */
+  
+}
+.pic-active{
+  /* color:red; */
+  border-radius: 20rpx ;
+  border:1px solid white;
+  background-color: lightgoldenrodyellow;
+
+}
+.active{
+  border-radius: 20rpx ;
+  border:1px solid white;
+  background-color: white;
+}
+
+
+.pic{
+  width: 100rpx;
+  height: 100rpx; 
+  
+}
+.txt{
+  font-size: 26rpx;
+  
+}

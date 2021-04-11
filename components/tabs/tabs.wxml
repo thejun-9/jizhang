@@ -1,0 +1,17 @@
+<view class="container" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+{{content}}
+  <view class="tabs">
+    <view class="tabs_title">
+      <view
+      wx:for="{{tabs}}"
+      wx:key="id"
+      class="title_item {{item.isActive?'active':''}}"
+      bindtap="handleItemTap"
+      data-index="{{index}}"
+      >
+      {{item.name}}
+      <image src="{{url}}"></image>
+      </view>
+    </view>
+  </view>
+</view>
