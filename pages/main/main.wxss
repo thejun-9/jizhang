@@ -1,7 +1,8 @@
-.tabs{} 
+/* .tabs{} */
 .tabs_title{
   display: flex;
-  padding: 10rpx;
+  width: 210px;
+  flex-flow: wrap;
 
 }
 .title_item{
@@ -9,6 +10,7 @@
   display:flex;
   justify-content: center;
   align-content: center;
+  background-color: whitesmoke;
 
 }
 .tabs.content{
@@ -16,22 +18,46 @@
 
 }
 .active{
-  color:red;
+  /* color:red; */
+  border-radius: 20rpx ;
+  border:1px solid white;
 
 }
-.view_column{
+.container {
   display: flex;
   flex-direction: column;
-  width: 25%; 
-  padding:10rpx;
-}
-.view_row{
-  flex:1;
-  display: flex;
-  flex-direction: row;
+  min-height: 100%;
   justify-content: space-between;
-  text-align:center;
-  align-items: center;
+}
+.row-box{
+  display: flex;
+  /* justify-content: center;
+  align-items:center; */
+  background-color: whitesmoke;
+
+  /* width:1500rpx; */
+}
+.box{
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  height: 70px;
+  box-sizing: border-box;
+  /* text-align: center;
+  justify-content: center; */
+  align-items:center;
+  padding:0,20px;
+  background-color: whitesmoke;
+  /* border-radius: 20rpx ;
+  border:1px solid white; */
   
+}
+.pic{
+  width: 100rpx;
+  height: 100rpx; 
+  
+}
+.txt{
+  font-size: 26rpx;
   
 }

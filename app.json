@@ -1,18 +1,19 @@
 {
   "pages":[
-
+    
     "pages/main/main",
     "pages/jiyibi/jiyibi",
-    
+    "pages/yusuan/yusuan",
     "pages/zhichu/zhichu",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/canyin1/canyin1"
   
     
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#00FFFF",
+    "navigationBarBackgroundColor": "#DAA520",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh":true  
@@ -39,7 +40,7 @@
     },
 
     {
-      "pagePath": "pages/main/main",
+      "pagePath": "pages/yusuan/yusuan",
       "text": "预算",
       "iconPath": "icon/yusuanguanli.png",
       "selectedIconPath": "icon/yusuanguanli.png"

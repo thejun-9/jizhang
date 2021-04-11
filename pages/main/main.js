@@ -19,22 +19,27 @@ Component({
       {
         id:0,
         name:"图表",
-        isActive:true
+        isActive:true,
+        url:"../../icon/_waimai.png"
       },
       {
         id:1,
         name:"流水",
         isActive:false
+        ,
+        url:"../../icon/lingshi.png"
       },
       {
         id:0,
         name:"预算",
-        isActive:false
+        isActive:false,
+        url:"../../icon/shezhi.png"
       },
       {
         id:0,
         name:"设置",
-        isActive:false
+        isActive:false,
+        url:"../../icon/_waimai.png"
       }
     ]
   },

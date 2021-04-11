@@ -10,6 +10,7 @@
       data-index="{{index}}"
       >
       {{item.name}}
+      <image src="{{url}}"></image>
       </view>
     </view>
   </view>

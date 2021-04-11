@@ -1,0 +1,6 @@
+/* pages/yusuan/yusuan.wxss */
+.pic{
+  width:40px;
+  height: 40px;
+
+}

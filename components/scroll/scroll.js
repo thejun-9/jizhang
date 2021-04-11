@@ -8,6 +8,7 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        
         navData:[
           {
             id:0,
@@ -44,6 +45,72 @@ Page({
             isActive:false
           }
         ],
+        picfood:[
+            {
+                id:0,
+                name:"三餐",
+                isActive:true,
+                url:"../../icon/shiwu1.png"
+            },
+            {
+              id:0,
+              name:"水果",
+              isActive:false,
+              url:"../../icon/shuiguo.png"
+            },
+            {
+              id:1,
+              name:"外卖",
+              isActive:false,
+              url:"../../icon/_waimai.png"
+            },
+            {
+              id:0,
+              name:"零食",
+              isActive:false,
+              url:"../../icon/lingshi.png"
+            },
+            {
+              id:0,
+              name:"烟酒",
+              isActive:false,
+              url:"../../icon/yanjiu.png"
+            },
+            
+          ],
+          pictravel:[
+            {
+                id:0,
+                name:"公交地铁",
+                isActive:true,
+                url:"../../icon/gongjiao.png",
+            },
+            {
+              id:0,
+              name:"共享单车",
+              isActive:false,
+              url:"../../icon/gongxiangdanche.png"
+            },
+            {
+              id:1,
+              name:"私家车",
+              isActive:false,
+              url:"../../icon/sijiache.png"
+            },
+            {
+              id:0,
+              name:"打车",
+              isActive:false,
+              url:"../../icon/dache.png"
+            },
+            {
+              id:0,
+              name:"飞机火车",
+              isActive:false,
+              url:"../../icon/feijihuoche.png"
+            },
+            
+          ],
         currentTab: 0,
         navScrollLeft: 0
     },
@@ -114,5 +181,26 @@ Page({
             currentTab: cur,
             navScrollLeft: (cur - 2) * singleNavWidth
         });
+    },
+    handleFood(e){
+        const {index}=e.currentTarget.dataset;
+        let {picfood}=this.data;
+        picfood.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false);
+        this.setData(
+          {
+            picfood
+          }
+        )
+        
+      },
+    handleTravel(e){
+        const {index}=e.currentTarget.dataset;
+        let {pictravel}=this.data;
+        pictravel.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false);
+        this.setData(
+          {
+            pictravel
+          }
+        )
     }
 })
