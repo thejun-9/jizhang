@@ -67,6 +67,10 @@ Page({
       });
 
   },
+  handle(e){
+    var ename = e.detail;
+    console.log(ename);
+  },
   // 付款
   payTap(){
       var _this = this;

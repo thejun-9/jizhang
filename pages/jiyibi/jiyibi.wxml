@@ -9,7 +9,7 @@
             <text class='content place' wx:if="{{!content}}">请输入金额</text>
         </view>
     </view>
-    <scroll>
+    <scroll bindsend="handle">
         <!-- <block wx:if="{{navData[0].id==cur}}">1</block>
         <block wx:if="{{navData[1].id==cur}}">2</block> -->
 

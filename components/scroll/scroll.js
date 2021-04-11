@@ -185,12 +185,15 @@ Page({
     handleFood(e){
         const {index}=e.currentTarget.dataset;
         let {picfood}=this.data;
+        var ename=this.data.picfood[index];
+        var cur = e.detail.current;
         picfood.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false);
         this.setData(
           {
             picfood
           }
         )
+         this.triggerEvent("send",{ename})
         
       },
     handleTravel(e){
