@@ -1,12 +1,4 @@
-<!--pages/lineCanvas/lineCanvas.wxml-->
-<view class="section_title">日期选择器</view>
-<picker mode="date" value="{{date}}" fields="month" start="2000-01" end="2021-04" bindchange="bindDateChange">
-  <view class="picker">
-    当前选择:{{date}}
-  </view>
-</picker>
-
 <view class="container">
-  <canvas canvas-id="lineCanvas" disable-scroll="true" class="lineCanvas" bindtouchstart="touchHandler" style="width:300px;height:300px;"></canvas>
-  <button type="default" bindtap="updateData">更新数据</button>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="lineCanvas" bindtouchstart="touchHandler" style="width:300px;height:300px;"></canvas>
+    <button type="default" bindtap="updateData">更新数据</button>
 </view>
