@@ -68,7 +68,8 @@ Page({
 
   },
   handle(e){
-    var ename = e.detail;
+    //var ename = e.detail;
+    var ename = e.detail.ename.name;
     console.log(ename);
   },
   // 付款

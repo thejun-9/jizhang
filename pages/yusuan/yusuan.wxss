@@ -4,3 +4,19 @@
   height: 40px;
 
 }
+.box{
+  display:flex;
+  flex-direction: row;
+  height: 60px;
+}
+.column-box{
+  display: flex;
+  flex-direction: column;
+}
+.secbox{
+
+
+}
+.progress{
+  width: 220px;
+}

@@ -1,11 +1,18 @@
 <view class="column-box">
   <view wx:for="{{part}}" 
         wx:key="id"
-        bindtap="bindHandle"
         class="box"
+        bindtap="handleTap"
   >
     <image class="pic" src="{{item.icon}}"></image>
+    <view class="secbox">
+      <view>{{item.name}}</view>
+      <progress percent="20" color="pink"  class="progress">
+        <view>余额：</view>
+      </progress>
+      <view>支出预算:{{item.money}}</view>
 
+    </view>
   </view>
 
 
