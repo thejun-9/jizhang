@@ -6,7 +6,17 @@ const app = getApp();
 
 Page({
   data: {
-    amoutList:[]
+    amoutList:[],
+    date:'2021-04',
+    fuid:'2'
+  },
+  //日期选择器
+  bindDateChange:function(e){
+    console.log('picker发送选择改变，携带值为',e.detail.value)
+    this.setData({
+        date:e.detail.value
+    })
+    this.onLoad()
   },
   //loadMyData函数用于打印myData的值 
   loadMyData() {
@@ -16,54 +26,53 @@ Page({
     var that=this;
     console.log(this.data.amoutList);
     var windowWidth = 320;
-        try {
-            var res = wx.getSystemInfoSync();
-            windowWidth = res.windowWidth;
-        } catch (e) {
-            console.error('getSystemInfoSync failed!');
-        }
-        //var simulationData = this.createSimulationData();
-        lineChart = new wxCharts({
-            canvasId: 'lineCanvas',
-            type: 'line',
-            categories: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
-            animation: true,
-            // background: '#f5f5f5',
-            series: [{
-                name: '收入',
-                data: that.data.amoutList[0],
-                format: function (val, name) {
-                  return val.toFixed(2);
-                }
-            }, {
-                name: '支出',
-                data: that.data.amoutList[1],
-                format: function (val, name) {
-                    return val.toFixed(2);
-                }
-            }],
-            xAxis: {
-                disableGrid: true
-            },
-            yAxis: {
-                title:'2020年5月支出收入详情(元)',
-                format: function (val) {
-                    return val.toFixed(2);
-                },
-                min: 0
-            },
-            width: windowWidth,
-            height: 200,
-            dataLabel: false,
-            dataPointShape: true,
-            extra: {
-                lineStyle: 'curve'
-            }
-        });
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+    //var simulationData = this.createSimulationData();
+    lineChart = new wxCharts({
+      canvasId: 'lineCanvas',
+      type: 'line',
+      categories: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],
+      animation: true,
+      series: [{
+          name: '收入',
+          data: that.data.amoutList[0],
+          format: function (val, name) {
+            return val.toFixed(2);
+          }
+        }, {
+          name: '支出',
+          data: that.data.amoutList[1],
+          format: function (val, name) {
+            return val.toFixed(2);
+          }
+        }],
+      xAxis: {
+        disableGrid: true
+      },
+      yAxis: {
+        title:'2020年5月支出收入详情(元)',
+        format: function (val) {
+          return val.toFixed(2);
+        },
+        min: 0
+      },
+      width: windowWidth,
+      height: 200,
+      dataLabel: false,
+      dataPointShape: true,
+      extra: {
+        lineStyle: 'curve'
+      }
+    });
   },
   // 生命周期函数onload用于监听页面加载 
   onLoad: function() {
-    utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/lineCanvas?uid=2&date=2020-05') 
+    utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/lineCanvas?uid='+this.data.fuid+'&date='+this.data.date) 
     // 使用.then处理结果 
     .then(res => { 
       this.setData({
