@@ -7,7 +7,9 @@
     "pages/zhichu/zhichu",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/canyin1/canyin1"
+    "pages/canyin1/canyin1",
+    "pages/sancan/sancan"
+
   
     
   ],
