@@ -1,7 +1,11 @@
 
 <view class='page_box' catchtap='hindKeyboard'>
     <view class='input_view' catchtap='hindKeyboard'>
-        <text class='title'>金额</text>
+        <picker mode="date" value="{{date}}" fields="day" start="2000-01" end="2021-05" bindchange="bindDateChange">
+            <view class="picker">
+            选择日期:{{account_date}}
+        </view>
+        </picker>
         <view class='input_box' catchtap='showKeyboard'>
             <text class='input_label'>￥</text>
             <text class='content' wx:if="{{content}}">{{content}}</text>

@@ -1,0 +1,29 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/charts/charts",
+          "pathName": "pages/charts/charts",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/jiyibi/jiyibi",
+          "pathName": "pages/jiyibi/jiyibi",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

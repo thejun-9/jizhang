@@ -9,7 +9,7 @@ Page({
       keyShow: true,//默认显示键盘
       fuid:'4',
       type:'其它',
-      account_date:'2020-02-20'
+      account_date:'2020-04-12'
   },
   //点击界面键盘消失
 //   hindKeyboard() {
@@ -19,6 +19,12 @@ Page({
 //       });
 //   },
   //点击输入框，键盘显示
+  bindDateChange:function(e){
+    console.log('picker发送选择改变，携带值为',e.detail.value)
+    this.setData({
+        account_date:e.detail.value
+    })
+  },
   showKeyboard() {
       var _this = this
       _this.setData({

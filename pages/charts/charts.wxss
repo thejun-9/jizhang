@@ -1,1 +1,5 @@
-/* pages/charts/charts.wxss */
+.picker{
+  padding:19rpx 26rpx;
+  background-color: #FFFFFF;
+  border:1px solid cornflowerblue;
+}
