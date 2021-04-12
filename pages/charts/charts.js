@@ -1,5 +1,7 @@
 var wxCharts = require('../../utils/wxcharts-min');
 var lineChart = null;
+var radarChartOutcome = null;
+var radarChartIncome = null;
 
 const utilApi=require('../../utils/promiseTest');
 const app = getApp();
@@ -7,7 +9,7 @@ const app = getApp();
 Page({
   data: {
     amoutList:[],
-    date:'2021-04',
+    date:'2020-05',
     fuid:'2'
   },
   //日期选择器
@@ -20,11 +22,11 @@ Page({
   },
   //loadMyData函数用于打印myData的值 
   loadMyData() {
-    console.log('获取到的数据为:' + this.data.amoutList)
+    //console.log('获取到的数据为:' + this.data.amoutList[5])
   },
   createCharts:function(){
     var that=this;
-    console.log(this.data.amoutList);
+    //console.log(this.data.amoutList);
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
@@ -69,6 +71,34 @@ Page({
         lineStyle: 'curve'
       }
     });
+    if(that.data.amoutList[4].length>2){
+      radarChartOutcome = new wxCharts({
+        canvasId: 'radarCanvasOutcome',
+        type: 'radar',
+        categories: that.data.amoutList[4],
+        series: [{
+          name: '支出雷达图',
+          data: that.data.amoutList[5]
+        }],
+        width: 300,
+        height: 200
+      });
+    }
+    if(that.data.amoutList[2].length>2){
+      radarChartIncome = new wxCharts({
+        canvasId: 'radarCanvasIncome',
+        type: 'radar',
+        categories: that.data.amoutList[2],
+        series: [{
+          name: '收入雷达图',
+          data: that.data.amoutList[3]
+        }],
+        width: 300,
+        height: 200
+      });
+    }
+    //console.log(that.data.amoutList[2].length)
+    //console.log(that.data.amoutList[4].length)
   },
   // 生命周期函数onload用于监听页面加载 
   onLoad: function() {
@@ -78,8 +108,8 @@ Page({
       this.setData({
         amoutList: res.data
       })
-      console.log(this.data.amoutList)
-      this.loadMyData()
+      //console.log(this.data.amoutList)
+      //this.loadMyData()
       this.createCharts();
     }) 
   },
