@@ -45,6 +45,12 @@
         {
           "name": "pages/yusuan/yusuan",
           "pathName": "pages/yusuan/yusuan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/sancan/sancan",
+          "pathName": "pages/sancan/sancan",
           "scene": null
         }
       ]

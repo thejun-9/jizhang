@@ -1,10 +1,17 @@
 // pages/sancan/sancan.js
+
+const utilApi=require('../../utils/promiseTest');
+const app= getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    amoutList:'',
+    type:'food',
+    fuid:'2',
+    date:'2020-05',
     content: '',//输入内容
     KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
     keyShow: false,//默认显示键盘
@@ -12,25 +19,25 @@ Page({
     part:[
       {
         id:0,
-        name:"餐饮",
+        name:"三餐",
         isActive:false,
-        money:100,
-        leftmoney:5.5,
+        money:0,
+        leftmoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/_waimai.png"       
       },
       {
         id:1,
-        name:"交通",
+        name:"水果",
         isActive:false,
-        money:10001.00,
-        leftmoney:100002.00,
+        money:0,
+        leftmoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
       {
         id:2,
-        name:"交通",
+        name:"外卖",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
@@ -39,7 +46,7 @@ Page({
       },
       {
         id:3,
-        name:"交通",
+        name:"零食",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
@@ -48,26 +55,42 @@ Page({
       },
       {
         id:4,
-        name:"交通",
+        name:"烟酒",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
-      {
-        id:5,
-        name:"交通",
-        isActive:false,
-        money:0.00,
-        leftmoney:0.00,
-        url:"../../pages/canyin1",
-        icon:"../../icon/shezhi.png"
-      },
-      
     ]
 
   },
+
+    // 生命周期函数onload用于监听页面加载 
+    onLoad: function() {
+      //console.log(app.globalData.uid)
+      var that=this;
+      utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryBudget?fuid='+that.data.fuid+'&date='+that.data.date+'&type='+that.data.type) 
+      .then(res => { 
+        this.setData({
+          amoutList: res.data
+        })
+        this.setBudget();
+      }) 
+    },
+
+    setBudget:function(){
+      for (let i = 0; i < this.data.amoutList[0].length; i++) {
+        //this.data.part[i].money=this.data.amoutList[0][i]
+        //直接修改 this.data,而不调用this.setData是无法改变页面的状态的，还会造成数据不一致
+        var index="part["+i+"].money";
+        var list=this.data.amoutList[0];
+        this.setData({
+          [index]:list[i]
+        })
+      }
+    },
+
     //点击界面键盘消失
   showbox(e){
     var cur = e.currentTarget.dataset.current; 
@@ -160,15 +183,25 @@ handle(e){
 payTap(e){
     
 
-    var cont = e.currentTarget.dataset.content;
+  var cont = e.currentTarget.dataset.content;
   var idx = e.currentTarget.dataset.index;
   let part=this.data.part;
+  var data1=0;
+  var data2=0;
+  data1=parseInt(cont);
+  data2=app.globalData.content;
   part[idx].leftmoney=cont;
+  app.globalData.content=data1+data2;
   this.setData({
-    part
+    part,
+    content:0
 
   });
-  console.log(part[idx].leftmoney);
+  console.log(part[0].leftmoney)
+  console.log(cont);
+  console.log(app.globalData.content) 
+
+  // console.log(data+1);
 },
 leftMoney(e)
 {
