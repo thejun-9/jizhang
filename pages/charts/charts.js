@@ -57,7 +57,7 @@ Page({
         disableGrid: true
       },
       yAxis: {
-        title:'2020年5月支出收入详情(元)',
+        title:that.data.date+'支出收入详情(元)',
         format: function (val) {
           return val.toFixed(2);
         },
