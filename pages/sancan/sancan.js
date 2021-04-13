@@ -15,7 +15,7 @@ Page({
         name:"餐饮",
         isActive:false,
         money:100,
-        leftmoney:100,
+        leftmoney:5.5,
         url:"../../pages/canyin1",
         icon:"../../icon/_waimai.png"       
       },
@@ -23,8 +23,8 @@ Page({
         id:1,
         name:"交通",
         isActive:false,
-        money:0.00,
-        leftmoney:0.00,
+        money:10001.00,
+        leftmoney:100002.00,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
@@ -76,12 +76,14 @@ Page({
     if (this.data.currentTab == cur) {
       this.setData({
         currentTab: -1,
-        keyShow:false
+        keyShow:false,
+        content:''
     })
     }else if(keyshow==true)  {
         this.setData({
             currentTab: -1,
-            keyShow: false
+            keyShow: false,
+            content:''
         })
     }else{
       this.setData({

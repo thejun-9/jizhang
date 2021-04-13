@@ -9,14 +9,23 @@
     >
       <image class="pic" src="{{item.icon}}"></image>
       <view class="secbox">
-        <view>{{item.name}}</view>
+        <view class="top-box">
+          <view>{{item.name}}</view>
+          <view class="input_box">
+              <text class='input_label'>支出</text> 
+              <!-- <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text> -->
+              <view class='className' wx:if="{{keyShow&&currentTab==index}}"></view>
+              <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text>
+              <!-- <text class='content place' wx:if="{{!content}}">余额</text> -->
+          </view> 
+        </view>
         <progress percent="{{item.money/item.leftmoney*100}}" color="pink"  class="progress">
-          <!-- <view class="input_box">
-              <text class='input_label'>￥</text> 
-              <text class='content' wx:if="{{content}}" data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text>
+           <!-- <view class="input_box">
+              <text class='input_label'>支出</text> 
+              <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text>
               <view class='className' wx:if="{{keyShow&&currentTab==index}}"></view>
               <text class='content place' wx:if="{{!content}}">余额</text>
-          </view> -->
+          </view>  -->
         </progress>
         <view>支出预算:{{item.money}}</view>
 
@@ -27,11 +36,11 @@
 
 <view class='keyboard {{keyShow&&"hind_box"}}'>
   <view>
-    <view class="input_box">
+    <view class="input_box1">
                <!-- <text class='input_label'>￥</text>  -->
               <text class='content' wx:if="{{content}}" data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{content}}</text>
               <view class='className' wx:if="{{keyShow}}"></view>
-              <text class='content place' wx:if="{{!content}}">余额</text>
+              <!-- <text class='content place' wx:if="{{!content}}">余额</text> -->
     </view>
   </view>
         <view class='key_box'>        
