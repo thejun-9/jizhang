@@ -1,4 +1,5 @@
 // pages/sancan/sancan.js
+const app= getApp()
 Page({
 
   /**
@@ -14,8 +15,8 @@ Page({
         id:0,
         name:"餐饮",
         isActive:false,
-        money:100,
-        leftmoney:5.5,
+        money:0,
+        leftmoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/_waimai.png"       
       },
@@ -23,8 +24,8 @@ Page({
         id:1,
         name:"交通",
         isActive:false,
-        money:10001.00,
-        leftmoney:100002.00,
+        money:0,
+        leftmoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
@@ -160,15 +161,25 @@ handle(e){
 payTap(e){
     
 
-    var cont = e.currentTarget.dataset.content;
+  var cont = e.currentTarget.dataset.content;
   var idx = e.currentTarget.dataset.index;
   let part=this.data.part;
+  var data1=0;
+  var data2=0;
+  data1=parseInt(cont);
+  data2=app.globalData.content;
   part[idx].leftmoney=cont;
+  app.globalData.content=data1+data2;
   this.setData({
-    part
+    part,
+    content:0
 
   });
-  console.log(part[idx].leftmoney);
+  console.log(part[0].leftmoney)
+  console.log(cont);
+  console.log(app.globalData.content) 
+
+  // console.log(data+1);
 },
 leftMoney(e)
 {

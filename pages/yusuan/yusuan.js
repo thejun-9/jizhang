@@ -1,4 +1,5 @@
 // pages/yusuan/yusuan.js
+const app= getApp()
 Page({
 
   data: {
@@ -21,9 +22,17 @@ Page({
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       }
-    ]
+    ],
+    content:0
   },
+  onShow: function (options) {
+    //  console.log(app.globalData.content) //打印options,可以看到title的值可以获取到
+    // var content=this.data.content;
+    this.setData({
+    content: app.globalData.content //为页面中title赋值
+    })
 
+    },
   handleTap(e){
     const {index}=e.currentTarget.dataset;
     let Url=this.data.part[index].url;

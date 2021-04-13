@@ -15,7 +15,7 @@
     <view class="secbox">
       <view>{{item.name}}</view>
       <progress percent="{{item.money/item.leftmoney*100}}" color="pink"  class="progress">
-        <view>余额：{{leftmoney}}</view>
+        <view>余额：{{content}}</view>
       </progress>
       <view>支出预算:{{item.money}}</view>
 

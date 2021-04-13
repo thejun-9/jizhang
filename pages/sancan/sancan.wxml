@@ -14,7 +14,7 @@
           <view class="input_box">
               <text class='input_label'>支出</text> 
               <!-- <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text> -->
-              <view class='className' wx:if="{{keyShow&&currentTab==index}}"></view>
+              <!-- <view class='className' wx:if="{{keyShow&&currentTab==index}}"></view> -->
               <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text>
               <!-- <text class='content place' wx:if="{{!content}}">余额</text> -->
           </view> 
