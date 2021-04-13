@@ -21,6 +21,24 @@
         {
           "name": "pages/jiyibi/jiyibi",
           "pathName": "pages/jiyibi/jiyibi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/check/check",
+          "pathName": "pages/check/check",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/register/register",
+          "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/main/main",
+          "pathName": "pages/main/main",
           "scene": null
         }
       ]

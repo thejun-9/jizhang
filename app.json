@@ -8,7 +8,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/canyin1/canyin1",
-    "pages/charts/charts"
+    "pages/charts/charts",
+    "pages/check/check",
+    "pages/register/register"
   
     
   ],
@@ -21,7 +23,7 @@
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/main/main",
+      "pagePath": "pages/charts/charts",
       "text": "图表",
       "iconPath": "icon/tubiao.png",
       "selectedIconPath": "icon/tubiao.png"
