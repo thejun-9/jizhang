@@ -9,8 +9,8 @@ const app = getApp();
 Page({
   data: {
     amoutList:[],
-    date:'2020-05',
-    fuid:'2'
+    date:'2021-04',
+    //fuid:app.globalData.uid,
   },
   //日期选择器
   bindDateChange:function(e){
@@ -102,7 +102,8 @@ Page({
   },
   // 生命周期函数onload用于监听页面加载 
   onLoad: function() {
-    utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/lineCanvas?uid='+this.data.fuid+'&date='+this.data.date) 
+    console.log(app.globalData.uid)
+    utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/lineCanvas?uid='+app.globalData.uid+'&date='+this.data.date) 
     // 使用.then处理结果 
     .then(res => { 
       this.setData({

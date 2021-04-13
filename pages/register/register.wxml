@@ -36,9 +36,11 @@
 <view class="loginBtnView"> 
 <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register">注册</button> 
 </view> 
+<!--
 <view hidden="{{isHidden}}">
   <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="start">开始体验</button>
 </view>
+-->
 </view>
 <view>{{showContent}}</view> 
 </view>

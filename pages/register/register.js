@@ -1,3 +1,4 @@
+var app = getApp();
 
 Page({
 
@@ -9,7 +10,7 @@ Page({
     phone:"",
     password:"",
     passwordAgain:"",
-    isHidden:true
+    isHidden:true,
   },
 
   /**
@@ -64,17 +65,25 @@ Page({
         },
         success: function (res) {
           console.log(res.data)
-          _this.setData({
-            showContent: res.data,
-            isHidden: false,
-          })
+            _this.setData({
+              showContent: res.data,
+              //isHidden:false
+            })
+            if(res.data!='error'){
+            app.globalData.uid=_this.data.showContent;
+            console.log(app.globalData.uid);
+            wx.switchTab({
+              url: '../../pages/main/main',
+            })
+          }
         }
       })
     }
-    console.log(_this.data.showContent)
+    //console.log(_this.data.showContent)
   },
 
   start:function(){
+
     wx.switchTab({
       url: '../../pages/main/main',
     })

@@ -193,7 +193,8 @@ Page({
             picfood
           }
         )
-         this.triggerEvent("send",{ename})
+         this.triggerEvent("send",{ename});
+    
         
       },
     handleTravel(e){

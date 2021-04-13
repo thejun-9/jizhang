@@ -1,3 +1,5 @@
+var app = getApp();
+
 Page({
 
   /**
@@ -27,7 +29,7 @@ Page({
       password: e.detail.value
     })
   },
-
+  
   login: function(){
     const _this = this
     wx.request({
@@ -35,16 +37,23 @@ Page({
       method:'get',
       data: {
         phone:_this.data.phone,
-        password:_this.data.password
+        password:_this.data.password,
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data)
+        //console.log(res.data)
         _this.setData({
           showContent: res.data,
         })
+        if(res.data!='该手机号未注册'&&res.data!='密码错误'){
+          app.globalData.uid=_this.data.showContent
+          console.log(app.globalData.uid)
+          wx.switchTab({
+            url: '../../pages/main/main'
+          })
+        }
       }
     })
   },

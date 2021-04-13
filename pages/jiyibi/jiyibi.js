@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
 
   /**
@@ -7,7 +9,7 @@ Page({
       content: '',//输入内容
       KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
       keyShow: true,//默认显示键盘
-      fuid:'4',
+      //fuid:'4',
       type:'其它',
       account_date:'2020-04-12'
   },
@@ -77,16 +79,9 @@ Page({
 
   },
   handle(e){
-    //console.log(e.detail);
     //var ename = e.detail;
-    //console.log(ename);
-    console.log(e.detail.ename.name);
-    let type=e.detail.ename.name;
-    console.log(type);
-    this.setData({
-        type
-    });
-    console.log(this.data.type);
+    var ename = e.detail.ename.name;
+    console.log(ename);
   },
   // 付款
   payTap(){
@@ -98,7 +93,7 @@ Page({
         data: {
           amout:that.data.content,
           type:that.data.type,
-          fuid:that.data.fuid,
+          fuid:app.globalData.uid,
           account_date:that.data.account_date
         },
         header: {
