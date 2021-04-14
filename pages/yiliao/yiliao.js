@@ -13,49 +13,32 @@ Page({
     part:[
       {
         id:0,
-        name:"三餐",
+        name:"药品",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon/shiwu1.png"       
+        icon:"../../icon/yaopin.png"       
       },
       {
         id:1,
-        name:"水果",
+        name:"治疗",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon//shuiguo.png"
+        icon:"../../icon/yiliao2.png"
       },
       {
         id:2,
-        name:"外卖",
+        name:"保健",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/_waimai.png"
+        icon:"../../icon/baojian.png"
       },
-      {
-        id:3,
-        name:"零食",
-        isActive:false,
-        money:0.00,
-        leftmoney:0.00,
-        url:"../../pages/canyin1",
-        icon:"../../icon/lingshi.png"
-      },
-      {
-        id:4,
-        name:"烟酒",
-        isActive:false,
-        money:0.00,
-        leftmoney:0.00,
-        url:"../../pages/canyin1",
-        icon:"../../icon/yanjiu.png"
-      },
+      
       
       
     ]

@@ -13,7 +13,7 @@ Page({
           {
             id:0,
             text: '职业收入',
-            isActive:true,
+            isActive:false,
             // url:"pages/main/main"
           },
           {
@@ -23,68 +23,74 @@ Page({
           }
         ],
         picfood:[
-            {
-                id:0,
-                name:"三餐",
-                isActive:true,
-                url:"../../icon/shiwu1.png"
-            },
-            {
-              id:0,
-              name:"水果",
-              isActive:false,
-              url:"../../icon/shuiguo.png"
-            },
-            {
-              id:1,
-              name:"外卖",
-              isActive:false,
-              url:"../../icon/_waimai.png"
-            },
-            {
-              id:0,
-              name:"零食",
-              isActive:false,
-              url:"../../icon/lingshi.png"
-            },
-            {
-              id:0,
-              name:"烟酒",
-              isActive:false,
-              url:"../../icon/yanjiu.png"
-            },
+          {
+            id:0,
+            name: '工资',
+            isActive:false,
+            url:"../../icon/gongzi.png"
+          },
+          {
+            id:1,
+            name: '利息',
+            isActive:false,
+            url:"../../icon/lixi.png"
+          },
+          {
+            id:0,
+            name:"投资",
+            isActive:false,
+            url:"../../icon/touzi.png"
+          },
+          {
+            id:1,
+            name:"加班",
+            isActive:false,
+            url:"../../icon/jiaban.png"
+          },
+          {
+            id:0,
+            name:"生意",
+            isActive:false,
+            url:"../../icon/shengyi.png"
+          },
+          {
+            id:0,
+            name:"奖金",
+            isActive:false,
+            url:"../../icon/jiangjin.png"
+          },
             
           ],
           pictravel:[
             {
                 id:0,
-                name:"公交地铁",
-                isActive:true,
-                url:"../../icon/gongjiao.png",
+                name:"礼金",
+                isActive:false,
+                url:"../../icon/lijin.png",
             },
             {
               id:0,
-              name:"共享单车",
+              name:"中奖",
               isActive:false,
-              url:"../../icon/gongxiangdanche.png"
+              url:"../../icon/zhongjiang.png"
             },
             {
               id:1,
-              name:"私家车",
+              name:"抢红包",
               isActive:false,
-              url:"../../icon/sijiache.png"
+              url:"../../icon/qianghongbao.png"
             },
             {
               id:0,
-              name:"打车",
+              name:"家人给钱",
               isActive:false,
-              url:"../../icon/dache.png"
+              url:"../../icon/jiarengeiqian.png"
             },
             {
               id:0,
-              name:"飞机火车",
+              name:"退税",
               isActive:false,
-              url:"../../icon/feijihuoche.png"
+              url:"../../icon/tuishui.png"
             },
             
           ],
@@ -178,10 +184,13 @@ Page({
         const {index}=e.currentTarget.dataset;
         let {pictravel}=this.data;
         pictravel.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false);
+        var ename=this.data.pictravel[index];
+        var cur = e.detail.current;
         this.setData(
           {
             pictravel
           }
         )
+        this.triggerEvent("send",{ename});
     }
 })

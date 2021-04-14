@@ -13,48 +13,48 @@ Page({
     part:[
       {
         id:0,
-        name:"三餐",
+        name:"休闲",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon/shiwu1.png"       
+        icon:"../../icon/xiuxian.png"       
       },
       {
         id:1,
-        name:"水果",
+        name:"聚会",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon//shuiguo.png"
+        icon:"../../icon/jvhui.png"
       },
       {
         id:2,
-        name:"外卖",
+        name:"健身",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/_waimai.png"
+        icon:"../../icon/jianshen.png"
       },
       {
         id:3,
-        name:"零食",
+        name:"约会",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/lingshi.png"
+        icon:"../../icon/yuehui.png"
       },
       {
         id:4,
-        name:"烟酒",
+        name:"游戏",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/yanjiu.png"
+        icon:"../../icon/youxi.png"
       },
       
       

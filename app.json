@@ -11,7 +11,12 @@
     "pages/charts/charts",
     "pages/liushui1/liushui1",
     "pages/update/update",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/jiaotong/jiaotong",
+    "pages/gouwu/gouwu",
+    "pages/yiliao/yiliao",
+    "pages/yule/yule",
+    "pages/qita/qita"
   ],
   "window":{
     "backgroundTextStyle":"dark",

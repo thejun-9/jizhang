@@ -13,48 +13,48 @@ Page({
     part:[
       {
         id:0,
-        name:"三餐",
+        name:"公交地铁",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon/shiwu1.png"       
+        icon:"../../icon/gongjiao.png"       
       },
       {
         id:1,
-        name:"水果",
+        name:"共享单车",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon//shuiguo.png"
+        icon:"../../icon/gongxiangdanche.png"
       },
       {
         id:2,
-        name:"外卖",
+        name:"私家车",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/_waimai.png"
+        icon:"../../icon/sijiache.png"
       },
       {
         id:3,
-        name:"零食",
+        name:"打车",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/lingshi.png"
+        icon:"../../icon/dache.png"
       },
       {
         id:4,
-        name:"烟酒",
+        name:"飞机火车",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/yanjiu.png"
+        icon:"../../icon/feijihuoche.png"
       },
       
       

@@ -13,39 +13,39 @@ Page({
     part:[
       {
         id:0,
-        name:"三餐",
+        name:"旅游",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon/shiwu1.png"       
+        icon:"../../icon/lvyou.png"       
       },
       {
         id:1,
-        name:"水果",
+        name:"宠物",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon//shuiguo.png"
+        icon:"../../icon/chongwu.png"
       },
       {
         id:2,
-        name:"外卖",
+        name:"丢失",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/_waimai.png"
+        icon:"../../icon/diushi.png"
       },
       {
         id:3,
-        name:"零食",
+        name:"宝宝",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/lingshi.png"
+        icon:"../../icon/baobao.png"
       },
       {
         id:4,

@@ -13,48 +13,57 @@ Page({
     part:[
       {
         id:0,
-        name:"三餐",
+        name:"日用品",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon/shiwu1.png"       
+        icon:"../../icon/riyongpin.png"       
       },
       {
         id:1,
-        name:"水果",
+        name:"美妆护肤",
         isActive:false,
         money:0,
         leftmoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon//shuiguo.png"
+        icon:"../../icon/meizhuang.png"
       },
       {
         id:2,
-        name:"外卖",
+        name:"数码",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/_waimai.png"
+        icon:"../../icon/shuma.png"
       },
       {
         id:3,
-        name:"零食",
+        name:"家装",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/lingshi.png"
+        icon:"../../icon/jiazhuang.png"
       },
       {
         id:4,
-        name:"烟酒",
+        name:"衣帽鞋包",
         isActive:false,
         money:0.00,
         leftmoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/yanjiu.png"
+        icon:"../../icon/yimaoxiebao.png"
+      },
+      {
+        id:4,
+        name:"电器",
+        isActive:false,
+        money:0.00,
+        leftmoney:0.00,
+        url:"../../pages/canyin1",
+        icon:"../../icon/dianqi.png"
       },
       
       
