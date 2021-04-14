@@ -1,9 +1,22 @@
 <view class="top">
+<image src="../../icon/background.png" class="background"></image>
+<view>
+  <text class="zongzhichu">支出总预算:</text>
   
+    <text class="use">已用预算:
+      <text>
+        100
+      </text>
+    </text>
+    <text class="unuse">未用预算:
+      <view>
+        100
+      </view>
+    </text>
+  
+
 </view>
-
-
-
+</view>
 <view class="column-box">
   <view wx:for="{{part}}" 
         wx:key="id"
