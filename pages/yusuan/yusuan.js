@@ -118,7 +118,6 @@ Page({
           this.setData({
             [index]:sum,
           })
-          //console.log(sum);
         },
 
               //日期选择器
@@ -174,9 +173,6 @@ Page({
         url: '../../pages/qita/qita',
     })
     }
-    
-   
-
     
   },
   method:{
