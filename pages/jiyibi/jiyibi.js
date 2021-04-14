@@ -76,5 +76,11 @@ Page({
   payTap(){
       var _this = this;
       console.log(_this.data.content)
+  },
+  zhichu()
+  {
+        wx.navigateTo({
+          url: '../../pages/zhichu/zhichu',
+        })
   }
 })
