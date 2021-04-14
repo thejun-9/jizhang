@@ -1,16 +1,12 @@
 {
   "pages":[
-    
     "pages/main/main",
     "pages/jiyibi/jiyibi",
     "pages/yusuan/yusuan",
-    "pages/zhichu/zhichu",
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/canyin1/canyin1",
-    "pages/charts/charts"
-  
-    
+    "pages/liushui/liushui",
+    "pages/charts/charts",
+    "pages/liushui1/liushui1",
+    "pages/update/update"
   ],
   "window":{
     "backgroundTextStyle":"dark",
@@ -27,7 +23,7 @@
       "selectedIconPath": "icon/tubiao.png"
     },
     {
-      "pagePath": "pages/main/main",
+      "pagePath": "pages/liushui1/liushui1",
       "text": "流水",
       "iconPath": "icon/liushui.png",
       "selectedIconPath": "icon/liushui.png"

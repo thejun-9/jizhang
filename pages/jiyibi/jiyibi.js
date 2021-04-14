@@ -11,20 +11,13 @@ Page({
       type:'其它',
       account_date:'2020-04-12'
   },
-  //点击界面键盘消失
-//   hindKeyboard() {
-//       var _this = this
-//       _this.setData({
-//           keyShow: false
-//       });
-//   },
-  //点击输入框，键盘显示
   bindDateChange:function(e){
     console.log('picker发送选择改变，携带值为',e.detail.value)
     this.setData({
         account_date:e.detail.value
     })
   },
+  //点击输入框，键盘显示
   showKeyboard() {
       var _this = this
       _this.setData({
@@ -77,9 +70,6 @@ Page({
 
   },
   handle(e){
-    //console.log(e.detail);
-    //var ename = e.detail;
-    //console.log(ename);
     console.log(e.detail.ename.name);
     let type=e.detail.ename.name;
     console.log(type);
@@ -91,7 +81,6 @@ Page({
   // 付款
   payTap(){
       var that=this
-      //console.log(that.data.content);
       wx.request({
         url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
         method:'POST',

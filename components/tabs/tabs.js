@@ -7,10 +7,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // aaa:{
-    //   type:String,
-    //   value:""
-    // }
 
   },
 
@@ -39,7 +35,21 @@ Component({
         name:"居家",
         isActive:false
       }
-    ]
+    ],
+    // tabs1:[
+    //   {id:0,
+    //   name:"日期升序",
+    //   isActive:true},
+    //   {id:1,
+    //   name:"日期降序",
+    //   isActive:true},
+    //   {id:2,
+    //   name:"金额升序",
+    //   isActive:true},
+    //   {id:3,
+    //   name:"金额降序",
+    //   isActive:true}
+    // ]
   },
   
 
