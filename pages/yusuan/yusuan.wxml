@@ -4,6 +4,7 @@
         请选择日期:{{date}}
     </view>
 </picker>
+
 </view>
 
 <view class="column-box">
@@ -17,7 +18,7 @@
     <view class="secbox">
       <view>{{item.name}}</view>
       <progress percent="{{100-(item.outcomeMoney/item.money)*100}}"  class="progress" active stroke-width="12">
-        <view>已支出：{{item.outcomeMoney}}</view>
+        <view>已支出:{{item.outcomeMoney}}</view>
       </progress>
       <view>支出预算:{{item.money}}</view>
     </view>

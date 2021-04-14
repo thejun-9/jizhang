@@ -1,11 +1,18 @@
 // pages/sancan/sancan.js
+const utilApi=require('../../utils/promiseTest');
 const app= getApp()
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
+    amoutList:'',
+    outcomeList:'',
+    fuid:app.globalData.uid,
+    type:'entertainment',
+    typeDetail:'',
+    date:'2021-04',
     content: '',//输入内容
     KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
     keyShow: false,//默认显示键盘
@@ -16,7 +23,7 @@ Page({
         name:"休闲",
         isActive:false,
         money:0,
-        leftmoney:0,
+        outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/xiuxian.png"       
       },
@@ -25,7 +32,7 @@ Page({
         name:"聚会",
         isActive:false,
         money:0,
-        leftmoney:0,
+        outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/jvhui.png"
       },
@@ -34,7 +41,7 @@ Page({
         name:"健身",
         isActive:false,
         money:0.00,
-        leftmoney:0.00,
+        outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/jianshen.png"
       },
@@ -43,7 +50,7 @@ Page({
         name:"约会",
         isActive:false,
         money:0.00,
-        leftmoney:0.00,
+        outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/yuehui.png"
       },
@@ -52,15 +59,63 @@ Page({
         name:"游戏",
         isActive:false,
         money:0.00,
-        leftmoney:0.00,
+        outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/youxi.png"
-      },
-      
-      
+      }, 
     ]
-
   },
+
+    // 生命周期函数onload用于监听页面加载 
+    onLoad: function(options) {
+      //console.log(app.globalData.uid)
+      //console.log(app.globalData.yusuanDate)
+      var date=options.date
+      this.setData({
+        date:date
+      })
+      var that=this;
+      utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryBudget?fuid='+that.data.fuid+'&date='+that.data.date+'&type='+that.data.type) 
+      .then(res => { 
+        this.setData({
+          amoutList: res.data
+        })
+        this.setBudget();
+      }) 
+      utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryBudgetLeft?fuid='+that.data.fuid+'&date='+that.data.date+'&type='+that.data.type) 
+      .then(res => { 
+        this.setData({
+          outcomeList: res.data,
+          //date:getApp().globalData.yusuanDate,
+        })
+        this.setLeftMoney();
+      }) 
+    },
+
+    setBudget:function(){
+      for (let i = 0; i < this.data.amoutList[0].length; i++) {
+        //this.data.part[i].money=this.data.amoutList[0][i]
+        //直接修改 this.data,而不调用this.setData是无法改变页面的状态的，还会造成数据不一致
+        var index="part["+i+"].money";
+        var list=this.data.amoutList[0];
+        this.setData({
+          [index]:list[i]
+        })
+      }
+    },
+
+    setLeftMoney:function(){
+      for (let i = 0; i < this.data.outcomeList[0].length; i++) {
+        //直接修改 this.data,而不调用this.setData是无法改变页面的状态的，还会造成数据不一致
+        var index="part["+i+"].outcomeMoney";
+        var list=this.data.outcomeList[0];
+        this.setData({
+          [index]:list[i]
+        })
+        //console.log(this.data.amoutList[0][i]/this.data.outcomeList[0][i])
+      }
+    },
+
     //点击界面键盘消失
   showbox(e){
     var cur = e.currentTarget.dataset.current; 
@@ -84,6 +139,10 @@ Page({
         keyShow: true
     })
     }
+    var temp=this.data.part[cur].name
+    this.setData({
+      typeDetail:temp
+    })
     
   },
   hindKeyboard() {
@@ -151,41 +210,27 @@ handle(e){
 },
 // 付款
 payTap(e){
-    
-
-  var cont = e.currentTarget.dataset.content;
-  var idx = e.currentTarget.dataset.index;
-  let part=this.data.part;
-  var data1=0;
-  var data2=0;
-  data1=parseInt(cont);
-  data2=app.globalData.content;
-  part[idx].leftmoney=cont;
-  app.globalData.content=data1+data2;
-  this.setData({
-    part,
-    content:0
-
-  });
-  console.log(part[0].leftmoney)
-  console.log(cont);
-  console.log(app.globalData.content) 
-
-  // console.log(data+1);
+  var that=this
+  //console.log(that.data.content);
+  //console.log(that.data.content);
+  //console.log(that.data.typeDetail);
+  //console.log(that.data.fuid);
+  //console.log(that.data.date);
+  wx.request({
+    url: 'http://127.0.0.1:8088/WxDemo/AddBudget',
+    method:'POST',
+    data: {
+      amout:that.data.content,
+      type:that.data.typeDetail,
+      fuid:that.data.fuid,
+      date:that.data.date
+    },
+    header: {
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    },
+    success: function (res) {
+      console.log(res.data)
+    }
+  })
 },
-leftMoney(e)
-{
-  // var cont = e.currentTarget.dataset.content;
-  // var idx = e.currentTarget.dataset.index;
-  // let part=that.data.part;
-  // part[idx].leftmoney=cont;
-  // this.dataset({
-  //   part
-
-  // });
-
-  
-}
-
-  
 })

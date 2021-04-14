@@ -5,30 +5,18 @@
           class="box {{currentTab==index ?'active':''}}"
           bindtap="showbox"
           data-index="{{index}}"
-          data-current="{{index}}"
+          data-current="{{index}}"  
     >
       <image class="pic" src="{{item.icon}}"></image>
       <view class="secbox">
         <view class="top-box">
           <view class="name">{{item.name}}</view>
           <view class="input_box">
-              <text class='input_label'>支出</text> 
-              <!-- <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text> -->
-              <!-- <view class='className' wx:if="{{keyShow&&currentTab==index}}"></view> -->
-              <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text>
-              <!-- <text class='content place' wx:if="{{!content}}">余额</text> -->
+              <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">已支出{{item.outcomeMoney}}元</text>
           </view> 
         </view>
-        <progress percent="{{item.money/item.leftmoney*100}}" color="pink"  class="progress">
-           <!-- <view class="input_box">
-              <text class='input_label'>支出</text> 
-              <text class='content'  data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{item.leftmoney}}</text>
-              <view class='className' wx:if="{{keyShow&&currentTab==index}}"></view>
-              <text class='content place' wx:if="{{!content}}">余额</text>
-          </view>  -->
-        </progress>
-        <view>支出预算:{{item.money}}</view>
-
+        <progress percent="{{100-(item.outcomeMoney/item.money)*100}}"  class="progress" active stroke-width="12"></progress>
+        <view>支出预算:{{item.money}}元</view>
       </view>
     </view>
   </scroll-view>
@@ -37,10 +25,8 @@
 <view class='keyboard {{keyShow&&"hind_box"}}'>
   <view>
     <view class="input_box1">
-               <!-- <text class='input_label'>￥</text>  -->
               <text class='content' wx:if="{{content}}" data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{content}}</text>
               <view class='className' wx:if="{{keyShow}}"></view>
-              <!-- <text class='content place' wx:if="{{!content}}">余额</text> -->
     </view>
   </view>
         <view class='key_box'>        
@@ -49,7 +35,6 @@
             </view>
             <view class="btn_box">
                 <view class='keys' catchtap='keyTap' data-keys='<'>
-               		<!-- 根据项目实际路径引用 -->
                     <image mode="widthFix" src="../../icon/delete_icon.png"></image>
                 </view>
                 <view class="keys pay_btn" catchtap='payTap' data-content="{{content}}" data-index="{{currentTab}}">保存</view>

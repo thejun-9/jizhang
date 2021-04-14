@@ -4,15 +4,15 @@ const utilApi=require('../../utils/promiseTest');
 const app= getApp()
 Page({
 
-  /**
+  /** 
    * 页面的初始数据
    */
-  data: {
+  data: { 
     amoutList:'',
     outcomeList:'',
+    fuid:app.globalData.uid,
     type:'food',
     typeDetail:'',
-    fuid:'2',
     date:'2021-04',
     content: '',//输入内容
     KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
@@ -35,7 +35,7 @@ Page({
         money:0,
         outcomeMoney:0,
         url:"../../pages/canyin1",
-        icon:"../../icon/shezhi.png"
+        icon:"../../icon/shuiguo.png"
       },
       {
         id:2,
@@ -44,7 +44,7 @@ Page({
         money:0.00,
         outcomeMoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/shezhi.png"
+        icon:"../../icon/_waimai.png"
       },
       {
         id:3,
@@ -53,7 +53,7 @@ Page({
         money:0.00,
         outcomeMoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/shezhi.png"
+        icon:"../../icon/lingshi.png"
       },
       {
         id:4,
@@ -62,7 +62,7 @@ Page({
         money:0.00,
         outcomeMoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/shezhi.png"
+        icon:"../../icon/yanjiu.png"
       },
     ]
 
