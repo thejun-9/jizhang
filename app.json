@@ -16,11 +16,13 @@
     "pages/gouwu/gouwu",
     "pages/yiliao/yiliao",
     "pages/yule/yule",
-    "pages/qita/qita"
+    "pages/qita/qita",
+    "pages/chaojiliushui/chaojiliushui",
+    "pages/paipai/paipai"
   ],
   "window":{
     "backgroundTextStyle":"dark",
-    "navigationBarBackgroundColor": "#DAA520",
+    "navigationBarBackgroundColor": "#FFD700",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh":true  
@@ -33,7 +35,7 @@
       "selectedIconPath": "icon/tubiao.png"
     },
     {
-      "pagePath": "pages/liushui1/liushui1",
+      "pagePath": "pages/chaojiliushui/chaojiliushui",
       "text": "流水",
       "iconPath": "icon/liushui.png",
       "selectedIconPath": "icon/liushui.png"
@@ -53,10 +55,10 @@
       "selectedIconPath": "icon/yusuanguanli.png"
     },
     {
-      "pagePath": "pages/main/main",
-      "text": "设置",
-      "iconPath": "icon/shezhi.png",
-      "selectedIconPath": "icon/shezhi.png"
+      "pagePath": "pages/paipai/paipai",
+      "text": "派派",
+      "iconPath": "icon/head.png",
+      "selectedIconPath": "icon/head.png"
     }
   ]
   },

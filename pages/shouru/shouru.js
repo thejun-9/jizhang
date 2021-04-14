@@ -77,6 +77,11 @@ Page({
     // 付款
     payTap(){
         var _this = this;
+        wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 2000//持续的时间
+          })
         console.log(_this.data.content)
     },
     zhichu()

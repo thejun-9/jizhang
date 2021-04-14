@@ -5,16 +5,12 @@
   
     <text class="use">已用预算:
       <text>
-        100
+
       </text>
     </text>
-    <text class="unuse">未用预算:
-      <view>
-        100
-      </view>
+      <text class="unuse">未用预算:<text>
     </text>
-  
-
+    </text>
 </view>
 </view>
 <view class="column-box">

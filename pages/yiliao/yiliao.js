@@ -153,6 +153,11 @@ payTap(e){
   console.log(part[0].leftmoney)
   console.log(cont);
   console.log(app.globalData.content) 
+  wx.showToast({
+    title: '成功',
+    icon: 'success',
+    duration: 1000//持续的时间
+  })
 
   // console.log(data+1);
 },
