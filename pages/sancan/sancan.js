@@ -145,7 +145,6 @@ Page({
     this.setData({
       typeDetail:temp
     })
-    console.log(this.data.typeDetail)
   },
   hindKeyboard() {
       var _this = this
@@ -217,12 +216,16 @@ handle(e){
 payTap(e){
   var that=this
   //console.log(that.data.content);
+  console.log(that.data.content);
+  console.log(that.data.typeDetail);
+  console.log(that.data.fuid);
+  console.log(that.data.date);
   wx.request({
     url: 'http://127.0.0.1:8088/WxDemo/AddBudget',
     method:'POST',
     data: {
       amout:that.data.content,
-      type:that.data.type,
+      type:that.data.typeDetail,
       fuid:that.data.fuid,
       date:that.data.date
     },
@@ -233,21 +236,6 @@ payTap(e){
       console.log(res.data)
     }
   })
-  that.onLoad()
+  //that.onLoad()
 },
-leftMoney(e)
-{
-  // var cont = e.currentTarget.dataset.content;
-  // var idx = e.currentTarget.dataset.index;
-  // let part=that.data.part;
-  // part[idx].leftmoney=cont;
-  // this.dataset({
-  //   part
-
-  // });
-
-  
-}
-
-  
 })
