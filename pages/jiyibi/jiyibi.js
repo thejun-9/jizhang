@@ -7,14 +7,16 @@ Page({
       content: '',//输入内容
       KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
       keyShow: true,//默认显示键盘
+      fuid:'4',
+      type:'其它',
+      account_date:'2020-04-12'
   },
-  //点击界面键盘消失
-//   hindKeyboard() {
-//       var _this = this
-//       _this.setData({
-//           keyShow: false
-//       });
-//   },
+  bindDateChange:function(e){
+    console.log('picker发送选择改变，携带值为',e.detail.value)
+    this.setData({
+        account_date:e.detail.value
+    })
+  },
   //点击输入框，键盘显示
   showKeyboard() {
       var _this = this
@@ -80,7 +82,8 @@ Page({
   zhichu()
   {
         wx.navigateTo({
-          url: '../../pages/zhichu/zhichu',
+          url: '../../pages/shouru/shouru',
         })
   }
+ 
 })

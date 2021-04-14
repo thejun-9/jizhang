@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "shouru":"../../components/shouru/shouru"
+  },
+  "navigationBarTitleText": "收入"
+}
