@@ -14,11 +14,11 @@
   flex-direction: column;
 }
 .secbox{
-
+  width:280px;
 
 }
 .progress{
-  width: 220px;
+  width: 260px;
   height:40px ;
 }
 .keyboard {
@@ -114,15 +114,16 @@
 .top-box{
   display:flex;
   flex-flow: row;
+  width: 280px;
 }
 .input_box {
   /* background: #ffc; */
   display: flex;
-  width: 60px;
+  width: 80px;
   /* border-bottom: 1px solid #efefef; */
   padding-left:150px;
 
-  height: 20px;
+  height: 20px; 
 }
 .input_box1 {
   /* background: #ffc; */
@@ -139,6 +140,7 @@
 }
 
 .content {
+  width: 100px;
   font-size: 30rpx;
   line-height: 90rpx;
   font-weight: bold;

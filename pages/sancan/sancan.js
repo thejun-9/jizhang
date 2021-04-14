@@ -12,7 +12,7 @@ Page({
     outcomeList:'',
     type:'food',
     fuid:'2',
-    date:'2020-05',
+    date:'2021-04',
     content: '',//输入内容
     KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
     keyShow: false,//默认显示键盘
@@ -68,8 +68,13 @@ Page({
   },
 
     // 生命周期函数onload用于监听页面加载 
-    onLoad: function() {
+    onLoad: function(options) {
       //console.log(app.globalData.uid)
+      //console.log(app.globalData.yusuanDate)
+      var date=options.date
+      this.setData({
+        date:date
+      })
       var that=this;
       utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryBudget?fuid='+that.data.fuid+'&date='+that.data.date+'&type='+that.data.type) 
       .then(res => { 
@@ -81,7 +86,8 @@ Page({
       utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryBudgetLeft?fuid='+that.data.fuid+'&date='+that.data.date+'&type='+that.data.type) 
       .then(res => { 
         this.setData({
-          outcomeList: res.data
+          outcomeList: res.data,
+          //date:getApp().globalData.yusuanDate,
         })
         this.setLeftMoney();
       }) 

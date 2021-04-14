@@ -8,7 +8,7 @@ Page({
     outcomeList:'',
     type:'food',
     fuid:'2',
-    date:'2020-05',
+    date:'2021-04',
     part:[
       {
         id:0,
@@ -85,6 +85,15 @@ Page({
           //console.log(sum);
         },
 
+              //日期选择器
+  bindDateChange:function(e){
+    console.log('picker发送选择改变，携带值为',e.detail.value)
+    this.setData({
+        date:e.detail.value
+    })
+    this.onLoad()
+  },
+
   onShow: function (options) {
     //  console.log(app.globalData.content) //打印options,可以看到title的值可以获取到
     // var content=this.data.content;
@@ -98,7 +107,7 @@ Page({
     let Url=this.data.part[index].url;
     if(index==0){  
       wx.navigateTo({
-        url: '../../pages/sancan/sancan',
+        url: '../../pages/sancan/sancan?date='+this.data.date,
      })
     }
     else if (index==1) {
