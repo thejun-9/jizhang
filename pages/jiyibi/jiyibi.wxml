@@ -1,5 +1,6 @@
 
 <view class='page_box' catchtap='hindKeyboard'>
+
     <view class='input_view' catchtap='hindKeyboard'>
         <picker mode="date" value="{{date}}" fields="day" start="2000-01" end="2021-05" bindchange="bindDateChange">
             <view class="picker">
@@ -7,7 +8,8 @@
         </view>
         </picker>
         <view class='input_box' catchtap='showKeyboard'>
-            <text class='input_label'>￥</text>
+            <!-- <button bindtap="zhichu" style="width:60px"  class="zhichu" size="mini">支出</button> -->
+            <text class='input_label'></text>
             <text class='content' wx:if="{{content}}">{{content}}</text>
             <view class='className' wx:if="{{keyShow}}"></view>
             <text class='content place' wx:if="{{!content}}">请输入金额</text>

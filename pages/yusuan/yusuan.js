@@ -23,10 +23,46 @@ Page({
         id:1,
         name:"交通",
         isActive:false,
+        money:0,
+        outcomeMoney:0,
+        url:"../../pages/canyin1",
+        icon:"../../icon/jiaotong.png"
+      },
+      {
+        id:0,
+        name:"购物",
+        isActive:false,
+        money:0,
+        outcomeMoney:0,
+        url:"../../pages/canyin1",
+        icon:"../../icon/gouwu.png"       
+      },
+      {
+        id:1,
+        name:"医疗",
+        isActive:false,
+        money:0,
+        outcomeMoney:0,
+        url:"../../pages/canyin1",
+        icon:"../../icon//yiliao2.png"
+      },
+      {
+        id:0,
+        name:"娱乐",
+        isActive:false,
+        money:0,
+        outcomeMoney:0,
+        url:"../../pages/canyin1",
+        icon:"../../icon/yule.png"       
+      },
+      {
+        id:1,
+        name:"其他",
+        isActive:false,
         money:0.00,
         outcomeMoney:0.00,
         url:"../../pages/canyin1",
-        icon:"../../icon/shezhi.png"
+        icon:"../../icon/qita.png"
       }
     ],
     content:0
@@ -112,35 +148,30 @@ Page({
     }
     else if (index==1) {
       wx.navigateTo({
-        url: '../../pages/demo1/demo1',
+        url: '../../pages/jiaotong/jiaotong',
     })
     } 
     else if (index==2){
       wx.navigateTo({
-        url: '../../pages/demo1/demo1',
+        url: '../../pages/gouwu/gouwu',
     })
     }
     else if (index==3)
     {
       wx.navigateTo({
-        url: '../../pages/demo1/demo1',
+        url: '../../pages/yiliao/yiliao',
     })
     }
     else if (index==4)
     {
       wx.navigateTo({
-        url: '../../pages/demo1/demo1',
+        url: '../../pages/yule/yule',
     })
     }
-    else if (index==5)
-    {
-      wx.navigateTo({
-        url: '../../pages/demo1/demo1',
-    })
-    }
+
     else{
       wx.navigateTo({
-        url: '../../pages/demo1/demo1',
+        url: '../../pages/qita/qita',
     })
     }
     

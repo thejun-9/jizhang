@@ -83,7 +83,7 @@
   height: 298rpx;
   line-height: 298rpx;
   padding-top: 0;
-  background: navajowhite;
+  background: orange;
   font-size: 30rpx;
   color: #fff;
   font-weight: normal;

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "scroll":"../../components/scroll/scroll"
-  }
+  },
+  "navigationBarTitleText": "支出"
 }

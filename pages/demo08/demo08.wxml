@@ -1,5 +1,2 @@
-<text user-select="text" >text  &nbsp  123</text>
-<!-- <image src="https://z3.ax1x.com/2021/04/02/ceAVL4.jpg"></image> -->
-<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 按钮1</button>
-<button open-type="share"> 按钮2</button>
-<button open-type="getUserInfo"> 按钮</button>
+<!--pages/demo08/demo08.wxml-->
+<text>pages/demo08/demo08.wxml</text>

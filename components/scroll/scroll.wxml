@@ -26,32 +26,6 @@
           </view>
 
         </view>
-        <!-- <view class="row-box" >
-          <view class="box" bindtap="click">
-            <image class="pic" src="../../icon/lingshi.png"></image>
-            <view class="txt">零食</view>
-          </view>
-         <view class="box" >
-          <image class="pic" src="../../icon/_waimai.png"></image>
-          <view class="txt">外卖</view>
-          </view>
-        
-        <view class="box">
-          <image class="pic" src="../../icon/shuiguo.png"></image>
-          <view class="txt">水果</view>          
-        </view>  
-      </view>
-      <view class="row-box">
-        <view class="box">
-          <image class="pic" src="../../icon/yanjiu.png"></image>
-          <view class="txt">烟酒</view>          
-        </view> 
-        <view class="box">
-          <image class="pic" src="../../icon/shiwu1.png"></image>
-          <view class="txt">三餐</view>          
-        </view> 
-
-      </view> -->
     </view>
 
     <view wx:if="{{currentTab==1}}">
@@ -68,6 +42,64 @@
           </view>
         </view>
       </view>
+
+      <view wx:if="{{currentTab==2}}">
+        <view class="row-box">
+          <view wx:for="{{picshop}}"
+              wx:key="id"
+              class="box {{item.isActive?'pic-active':''}}"
+              bindtap="handleshop"
+              data-index="{{index}}">
+              <!-- <view class="box"> -->
+                <image class="pic" src="{{item.url}}"></image>
+                <view class="txt">{{item.name}}</view>   
+              <!-- </view> -->
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{currentTab==3}}">
+        <view class="row-box">
+          <view wx:for="{{piccure}}"
+              wx:key="id"
+              class="box {{item.isActive?'pic-active':''}}"
+              bindtap="handlecure"
+              data-index="{{index}}">
+              <!-- <view class="box"> -->
+                <image class="pic" src="{{item.url}}"></image>
+                <view class="txt">{{item.name}}</view>   
+              <!-- </view> -->
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{currentTab==4}}">
+        <view class="row-box">
+          <view wx:for="{{picfun}}"
+              wx:key="id"
+              class="box {{item.isActive?'pic-active':''}}"
+              bindtap="handlefun"
+              data-index="{{index}}">
+              <!-- <view class="box"> -->
+                <image class="pic" src="{{item.url}}"></image>
+                <view class="txt">{{item.name}}</view>   
+              <!-- </view> -->
+          </view>
+        </view>
+      </view>
       
+      <view wx:if="{{currentTab==5}}">
+        <view class="row-box">
+          <view wx:for="{{picother}}"
+              wx:key="id"
+              class="box {{item.isActive?'pic-active':''}}"
+              bindtap="handleother"
+              data-index="{{index}}">
+              <!-- <view class="box"> -->
+                <image class="pic" src="{{item.url}}"></image>
+                <view class="txt">{{item.name}}</view>   
+              <!-- </view> -->
+          </view>
+        </view>
+      </view>
 </view>
-<!-- </view> -->

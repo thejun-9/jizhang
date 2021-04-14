@@ -13,13 +13,6 @@ Page({
       type:'其它',
       account_date:'2020-04-12'
   },
-  //点击界面键盘消失
-//   hindKeyboard() {
-//       var _this = this
-//       _this.setData({
-//           keyShow: false
-//       });
-//   },
   //点击输入框，键盘显示
   bindDateChange:function(e){
     console.log('picker发送选择改变，携带值为',e.detail.value)
@@ -107,4 +100,5 @@ Page({
         }
       })
   }
+ 
 })

@@ -49,6 +49,7 @@ page{
   background-color: whitesmoke;
   width:320px;
   flex-wrap: wrap;
+  
 
   /* width:1500rpx; */
 }
@@ -56,7 +57,7 @@ page{
   display: flex;
   flex-direction: column;
   width: 33%;
-  height: 70px;
+  height: 60px;
   box-sizing: border-box;
   /* text-align: center;
   justify-content: center; */

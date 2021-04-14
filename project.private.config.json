@@ -1,59 +1,36 @@
 {
-  "setting": {},
-  "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/charts/charts",
-          "pathName": "pages/charts/charts",
-          "query": "",
-          "scene": null
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/jiyibi/jiyibi",
-          "pathName": "pages/jiyibi/jiyibi",
-          "query": "",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/check/check",
-          "pathName": "pages/check/check",
-          "query": "",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/register/register",
-          "pathName": "pages/register/register",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/main/main",
-          "pathName": "pages/main/main",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/yusuan/yusuan",
-          "pathName": "pages/yusuan/yusuan",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/sancan/sancan",
-          "pathName": "pages/sancan/sancan",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "流水",
+                    "pathName": "pages/liushui/liushui",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "流水1",
+                    "pathName": "pages/liushui1/liushui1",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "记一笔",
+                    "pathName": "pages/jiyibi/jiyibi",
+                    "query": "",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

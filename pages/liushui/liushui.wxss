@@ -1,0 +1,29 @@
+page{
+    background-color: #edece8;
+}
+.box1{
+    width: 100%;
+    height: 350rpx;
+}
+.bg1{
+    width: 100%;
+    height: 350rpx;
+    position: absolute;
+}
+.zongzhichu{
+    position: absolute;
+    font-size: 60rpx;
+    font-weight: 1000;
+    color: #ffffff;
+    top: 250rpx;
+}
+.zongshouru{
+    top: 170rpx;
+    font-size: 60rpx;
+    color: #ffffff;
+    font-weight: 1000;
+    position: absolute;
+}
+.box2{
+    position: relative;
+}

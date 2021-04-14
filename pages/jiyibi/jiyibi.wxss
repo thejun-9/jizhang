@@ -53,6 +53,7 @@ page {
     color: #E2E2E2;
     font-weight: normal;
     margin-top: 8rpx;
+    width: 80%;
 }
 
 .className {
@@ -140,8 +141,24 @@ page {
     height: 298rpx;
     line-height: 298rpx;
     padding-top: 0;
-    background: navajowhite;
+    background: orange;
     font-size: 30rpx;
     color: #fff;
     font-weight: normal;
+}
+.zhichu{
+   padding-left: 10px;
+   /* background-color: darkkhaki; */
+   align-items: center;
+   text-align: center;
+   align-content: center;
+   border-bottom: 1px solid whitesmoke;
+}
+.zhichu-box{
+    display: flex;
+    flex-flow: row;
+}
+.picker{
+    width: 200px;
+    padding-top: 10rpx;
 }

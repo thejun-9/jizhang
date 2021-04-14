@@ -11,6 +11,7 @@ Page({
     amoutList:'',
     outcomeList:'',
     type:'food',
+    typeDetail:'',
     fuid:'2',
     date:'2021-04',
     content: '',//输入内容
@@ -140,7 +141,11 @@ Page({
         keyShow: true
     })
     }
-    
+    var temp=this.data.part[cur].name
+    this.setData({
+      typeDetail:temp
+    })
+    console.log(this.data.typeDetail)
   },
   hindKeyboard() {
       var _this = this
@@ -203,31 +208,32 @@ keyTap(e) {
 handle(e){
   //var ename = e.detail;
   var ename = e.detail.ename.name;
+  this.setData({
+    type:ename
+  })
   console.log(ename);
 },
-// 付款
+// 预算增加
 payTap(e){
-    
-
-  var cont = e.currentTarget.dataset.content;
-  var idx = e.currentTarget.dataset.index;
-  let part=this.data.part;
-  var data1=0;
-  var data2=0;
-  data1=parseInt(cont);
-  data2=app.globalData.content;
-  part[idx].leftmoney=cont;
-  app.globalData.content=data1+data2;
-  this.setData({
-    part,
-    content:0
-
-  });
-  console.log(part[0].leftmoney)
-  console.log(cont);
-  console.log(app.globalData.content) 
-
-  // console.log(data+1);
+  var that=this
+  //console.log(that.data.content);
+  wx.request({
+    url: 'http://127.0.0.1:8088/WxDemo/AddBudget',
+    method:'POST',
+    data: {
+      amout:that.data.content,
+      type:that.data.type,
+      fuid:that.data.fuid,
+      date:that.data.date
+    },
+    header: {
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+    },
+    success: function (res) {
+      console.log(res.data)
+    }
+  })
+  that.onLoad()
 },
 leftMoney(e)
 {
