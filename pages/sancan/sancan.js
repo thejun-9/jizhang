@@ -9,6 +9,7 @@ Page({
    */
   data: {
     amoutList:'',
+    outcomeList:'',
     type:'food',
     fuid:'2',
     date:'2020-05',
@@ -22,7 +23,7 @@ Page({
         name:"三餐",
         isActive:false,
         money:0,
-        leftmoney:0,
+        outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/_waimai.png"       
       },
@@ -31,7 +32,7 @@ Page({
         name:"水果",
         isActive:false,
         money:0,
-        leftmoney:0,
+        outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
@@ -40,7 +41,7 @@ Page({
         name:"外卖",
         isActive:false,
         money:0.00,
-        leftmoney:0.00,
+        outcomeMoney:0.00,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
@@ -49,7 +50,7 @@ Page({
         name:"零食",
         isActive:false,
         money:0.00,
-        leftmoney:0.00,
+        outcomeMoney:0.00,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
@@ -58,7 +59,7 @@ Page({
         name:"烟酒",
         isActive:false,
         money:0.00,
-        leftmoney:0.00,
+        outcomeMoney:0.00,
         url:"../../pages/canyin1",
         icon:"../../icon/shezhi.png"
       },
@@ -77,6 +78,13 @@ Page({
         })
         this.setBudget();
       }) 
+      utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryBudgetLeft?fuid='+that.data.fuid+'&date='+that.data.date+'&type='+that.data.type) 
+      .then(res => { 
+        this.setData({
+          outcomeList: res.data
+        })
+        this.setLeftMoney();
+      }) 
     },
 
     setBudget:function(){
@@ -88,6 +96,18 @@ Page({
         this.setData({
           [index]:list[i]
         })
+      }
+    },
+
+    setLeftMoney:function(){
+      for (let i = 0; i < this.data.outcomeList[0].length; i++) {
+        //直接修改 this.data,而不调用this.setData是无法改变页面的状态的，还会造成数据不一致
+        var index="part["+i+"].outcomeMoney";
+        var list=this.data.outcomeList[0];
+        this.setData({
+          [index]:list[i]
+        })
+        //console.log(this.data.amoutList[0][i]/this.data.outcomeList[0][i])
       }
     },
 

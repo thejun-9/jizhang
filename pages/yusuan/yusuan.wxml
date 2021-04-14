@@ -2,12 +2,6 @@
   
 </view>
 
-<picker mode="date" value="{{date}}" fields="month" start="2000-01" end="2021-05" bindchange="bindDateChange">
-    <view class="picker">
-        请选择日期:{{date}}
-    </view>
-</picker>
-
 <view class="column-box">
   <view wx:for="{{part}}" 
         wx:key="id"
@@ -18,8 +12,8 @@
     <image class="pic" src="{{item.icon}}"></image>
     <view class="secbox">
       <view>{{item.name}}</view>
-      <progress percent="{{item.money/item.leftmoney*100}}" color="pink"  class="progress">
-        <view>余额：{{content}}</view>
+      <progress percent="{{100-(item.outcomeMoney/item.money)*100}}"  class="progress" active stroke-width="12">
+        <view>已支出：{{item.outcomeMoney}}</view>
       </progress>
       <view>支出预算:{{item.money}}</view>
     </view>
