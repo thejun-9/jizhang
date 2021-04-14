@@ -1,0 +1,40 @@
+<!--pages/page1/page1.wxml-->
+<view class="total">
+  <!--<image class="total_img" src='../../icon/shan.jpg' mode="aspectFill"></image>-->
+  <view class='total_title'>结余</view>
+  <view class='total_money'>{{total_remain}}</view>
+  <view class='total_get'>收入： {{total_get}}|支出： {{total_pay}}</view>
+</view>
+<view>
+  <text style="font-size:38rpx;color:#808080">{{total_month}}月.{{total_year}} 结余{{total_remain}}</text>
+  <view style="height:20rpx;"></view>
+  <block  wx:for='{{mylist}}' >
+    
+  <view wx:if='{{item.change==0}}' class='flex-row' style="width:700rpx;height:130rpx;">
+    <view class='flex-fir' style="width:200rpx">
+      <text style="font-size:50rpx;color:#000">{{item.day}}日</text>
+      <text style="font-size:30rpx;color:#808080">{{item.data}}</text>
+    </view>
+    <view class='flex-fir'>
+      <view>
+        <text style="font-size:50rpx;color:#000">{{item.mon}}</text>
+        <text style="font-size:30rpx;color:#808080">结余</text>
+      </view>
+      <text style="font-size:30rpx;color:#808080">收入 {{item.get}}|支出 {{item.pay}}</text>
+    </view>
+  </view>
+  <view wx:if='{{item.change==1}}' class='flex-row'  style="width:700rpx;height:130rpx;">
+    <view class='flex-fir'style="width:200rpx">
+      <text style="font-size:40rpx;color:#808080">{{item.day}}</text>
+      <text style="font-size:25rpx;color:#808080">{{item.week}}</text>
+    </view>
+    <view class='flex-fir' style="width:400rpx">
+      <text style="font-size:40rpx;color:#000">{{item.type}}</text>
+      <text style="font-size:25rpx;color:#808080">18：05 现金</text>
+    </view>
+    <view class='flex-fir'>
+      <text style="font-size:50rpx;color:green">{{item.mon}}</text>
+    </view>
+  </view>
+</block>
+</view>
