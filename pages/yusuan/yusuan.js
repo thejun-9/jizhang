@@ -120,7 +120,7 @@ Page({
           })
         },
 
-              //日期选择器
+  //日期选择器
   bindDateChange:function(e){
     console.log('picker发送选择改变，携带值为',e.detail.value)
     this.setData({
@@ -155,8 +155,7 @@ Page({
         url: '../../pages/gouwu/gouwu',
     })
     }
-    else if (index==3)
-    {
+    else if (index==3){
       wx.navigateTo({
         url: '../../pages/yiliao/yiliao',
     })

@@ -5,6 +5,7 @@
                 修改日期为:{{account_date}}
             </view>
         </picker>
+        <!--
         <view class="section">
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
                 <view class="picker">
@@ -12,6 +13,7 @@
                 </view>
             </picker>
         </view>
+        -->
         <view class='input_box' catchtap='showKeyboard'>
             <text class='input_label'>修改金额￥</text>
             <text class='content' wx:if="{{content}}">{{content}}</text>
@@ -32,6 +34,6 @@
                 </view>
                 <view class="keys pay_btn" catchtap='payTap'>保存</view>
             </view>
-        </view>
+        </view> 
     </view>
 </view>

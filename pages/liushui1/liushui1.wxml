@@ -1,6 +1,6 @@
 <picker mode="date" value="{{date}}" fields="month" start="2000-01" end="2021-05" bindchange="bindDateChange">
     <view class="picker">
-        <text class="year_month">选择月份:{{account_date}}</text>
+        <text class="year_month">选择月份:{{date}}</text>
     </view>
 </picker>
 <view class="tabs">
@@ -15,7 +15,7 @@
             <text>金额</text>
             <text>种类</text>
         </view>
-        <view class="item_info" wx:for="{{accountinfo}}" wx:key="index" bindtap="handleItem" data-index="{{item}}">
+        <view class="item_info" wx:for="{{amoutList}}" wx:key="index" bindtap="handleItem" data-index="{{item}}">
             <text>{{item[4]}}</text>
             <text>{{item[2]}}</text>
             <text>{{item[3]}}</text>

@@ -15,7 +15,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    uid:'',
+    uid:'2',
     // userInfo: null
     content:0
   }
