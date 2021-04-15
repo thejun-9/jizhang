@@ -62,6 +62,16 @@ Page({
         outcomeMoney:0,
         url:"../../pages/canyin1",
         icon:"../../icon/yule.png"       
+      },
+      {
+        id:5,
+        name:"其它",
+        type:'others',
+        isActive:false,
+        money:0,
+        outcomeMoney:0,
+        url:"../../pages/canyin1",
+        icon:"../../icon/qita.png"       
       }],
     content:0
   },

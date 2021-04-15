@@ -211,7 +211,7 @@ handle(e){
     type:ename
   })
   console.log(ename);
-},
+}, 
 // 预算增加
 payTap(e){ 
   var that=this

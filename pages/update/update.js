@@ -1,5 +1,5 @@
 const utilApi=require('../../utils/promiseTest');
-
+const app= getApp()
 Page({
 
     /**
@@ -13,7 +13,6 @@ Page({
         fuid:0,
         type:'',
         account_date:'',
-        //array: ['水果', '外卖', '吃屎', '其他'],
         index: 0,
         aid:0
     },
@@ -21,16 +20,6 @@ Page({
         const record=wx.getStorageSync("record").index;
         //console.log(record);
         this.setData({record:record,aid:record[0],content:String(record[2]),fuid:record[1],type:record[3],account_date:record[4]});
-        //aid
-        //fuid
-        //amout
-        //type
-        //account_date
-       /* for(let i = 0;i < this.data.array.length;i++){
-            if(this.data.array[i] == record[3]){
-                this.setData({index:i})
-            }
-        }*/
     },
     bindDateChange:function(e){
       //console.log('picker发送选择改变，携带值为',e.detail.value)
@@ -68,36 +57,50 @@ Page({
         keys = e.currentTarget.dataset.keys,
         content = _this.data.content,
         len = content.length;
-  
+        console.log(len);
         switch (keys) {
-            case '·': //点击小数点，（注意输入字符串里的是小数点，但是我界面显示的点不是小数点，是居中的点，在中文输入法下按键盘最左边从上往下数的第二个键，也就是数字键1左边的键可以打出居中的点）
-                if (len < 11 && content.indexOf('.') == -1) { //如果字符串里有小数点了，则不能继续输入小数点，且控制最多可输入10个字符串
-                    if (content.length < 1) { //如果小数点是第一个输入，那么在字符串前面补上一个0，让其变成0.
+            case '·': 
+                if (len < 8 && content.indexOf('.') == -1) { //如果字符串里有小数点了，则不能继续输入小数点，且控制最多可输入10个字符串
+                    if (content.length < 1) { 
                         content = '0.';
-                    } else { //如果不是第一个输入小数点，那么直接在字符串里加上小数点
+                    } else if(content.indexOf('-') == 0 && content.length == 1)
+                    {
+                        content = '-0.';
+                    }
+                    else { //如果不是第一个输入小数点，那么直接在字符串里加上小数点
                         content += '.';
                     }
                 }
                 break;
             case 0:
-                console.log(content)
-                if (len < 4) {
+                console.log(content);
+
+                if (content.length < 7) {
                     console.log(content.length)
-                    if (content.length < 1) { //如果0是第一个输入，让其变成0.
+                    if (content.length < 1) {
                         content = '0.';
-                    }else{
+                    }else if(content.length == 1 && content.indexOf('-') == 0){
+                        content = '-0.';
+                    }else if(content.indexOf('.') != -1 && content.length-content.indexOf('.') == 3)//有小数点并且小数点最后已经有两位数字了
+                    {
+                        break;
+                    }
+                    else{
                         content += '0'
                     }
+                    
                 }
                 break;
-            case '<': //如果点击删除键就删除字符串里的最后一个
+            case '<':
+                if(content.length==1 && content.indexOf('-') == 0)
+                    break;
                 content = content.substr(0, content.length - 1);
                 break;
             default:
-                let Index = content.indexOf('.'); //小数点在字符串中的位置
-                if (Index == -1 || len - Index != 3) { //这里控制小数点只保留两位
-                    if (len < 11) { //控制最多可输入10个字符串
-                        content += keys;
+                let Index = content.indexOf('.');
+                if (Index == -1 || len - Index != 3) {
+                    if (len < 8) {
+                        content = content + String(keys);
                     }
                 }
                 break
@@ -140,6 +143,11 @@ Page({
               condition:res.data,
             })
           }
+        })
+        wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000//持续的时间
         })
     }
   })
