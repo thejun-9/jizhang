@@ -2,11 +2,15 @@
 <view class='page_box' catchtap='hindKeyboard'>
 
     <view class='input_view' catchtap='hindKeyboard'>
+        <view class="zhichu-box">
+        <button bindtap="zhichu" style="width:60px"  class="zhichu" size="mini">支出</button>
         <picker mode="date" value="{{date}}" fields="day" start="2000-01" end="2021-05" bindchange="bindDateChange">
             <view class="picker">
-            选择日期:{{account_date}}
-        </view>
+                日期:{{account_date}}
+                
+            </view>
         </picker>
+    </view>
         <view class='input_box' catchtap='showKeyboard'>
             <!-- <button bindtap="zhichu" style="width:60px"  class="zhichu" size="mini">支出</button> -->
             <text class='input_label'></text>

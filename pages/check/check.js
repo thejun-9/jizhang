@@ -51,7 +51,7 @@ Page({
           app.globalData.uid=_this.data.showContent
           console.log(app.globalData.uid)
           wx.switchTab({
-            url: '../../pages/main/main'
+            url: '../../pages/jiyibi/jiyibi'
           })
         }
       }

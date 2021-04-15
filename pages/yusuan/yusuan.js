@@ -6,11 +6,10 @@ Page({
   data: {
     amoutList:'',
     outcomeList:'',
-    sumBudget:'',
-    sumOutcome:'',
-    //type:['food','traffic'],
+    sumBudget:0,
+    sumOutcome:0,
+    leftBudget:0,
     index:0,
-    //typeCur:'food',
     fuid:app.globalData.uid,
     date:'2020-05',
     part:[
@@ -86,6 +85,7 @@ Page({
               })
               this.setOutcomeMoney();
             })  
+            //console.log(this.data.sumBudget)
           }
         },
     
@@ -96,8 +96,10 @@ Page({
           }
           var val=this.data.index;
           var index="part["+val+"].money";
+          var oldSumBudget=this.data.sumBudget;
           this.setData({
             [index]:sum,
+            sumBudget:oldSumBudget+sum,
           })
         },
 
@@ -108,11 +110,15 @@ Page({
           }      
           var val=this.data.index;
           var index="part["+val+"].outcomeMoney";
+          var oldSumOutcome=this.data.sumOutcome;
+          var sumBudget=this.data.sumBudget;
           this.setData({
             [index]:sum,
+            sumOutcome:oldSumOutcome+sum,
+            leftBudget:sumBudget-(oldSumOutcome+sum),
           })
         },
-
+ 
     /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -174,9 +180,4 @@ Page({
     }
     
   },
-  method:{
-   
-    
-    
-  }
 })

@@ -215,5 +215,10 @@ payTap(e){
       console.log(res.data)
     }
   })
+  wx.showToast({
+    title: '成功',
+    icon: 'success',
+    duration: 2000//持续的时间
+  })
 },
 })

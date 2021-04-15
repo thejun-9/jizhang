@@ -7,6 +7,7 @@ Page({
       content: '',//输入内容
       KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
       keyShow: true,//默认显示键盘
+      date:'2021-04',
   },
   //点击界面键盘消失
 //   hindKeyboard() {
@@ -71,10 +72,32 @@ Page({
     //var ename = e.detail;
     var ename = e.detail.ename.name;
     console.log(ename);
+    this.setData({
+        type:ename
+      })
   },
   // 付款
-  payTap(){
+  payTap(optioons){
       var _this = this;
-      console.log(_this.data.content)
-  }
+      var date=optioons.date;
+      this.setData({
+          date:date
+      })
+      wx.request({
+        url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
+        method:'POST',
+        data: {
+          amout:that.data.content,
+          type:that.data.type,
+          fuid:app.globalData.uid,
+          account_date:date
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        success: function (res) {
+          console.log(res.data)
+        }
+      })
+  } 
 })

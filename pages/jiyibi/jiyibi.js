@@ -75,16 +75,19 @@ Page({
     //var ename = e.detail;
     var ename = e.detail.ename.name;
     console.log(ename);
+    this.setData({
+      type:ename
+    })
   },
   // 付款
-  payTap(){
+  payTap(){ 
       var that=this
       //console.log(that.data.content);
       wx.request({
         url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
         method:'POST',
         data: {
-          amout:that.data.content,
+          amout:'-'+that.data.content,
           type:that.data.type,
           fuid:app.globalData.uid,
           account_date:that.data.account_date
@@ -99,6 +102,18 @@ Page({
           })
         }
       })
+      wx.showToast({
+        title: '成功',
+        icon: 'success',
+        duration: 2000//持续的时间
+      })
+      console.log(that.data.content)
+  },
+  zhichu()
+  {
+        wx.navigateTo({
+          url: '../../pages/shouru/shouru?date='+this.data.account_date,
+        })
   }
  
 })
