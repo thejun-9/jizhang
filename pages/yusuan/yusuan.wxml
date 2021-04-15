@@ -1,3 +1,5 @@
+<!-- 在wxml页面里保留小数点 -->
+<wxs module="filters" src="../../utils/addmul.wxs"></wxs>
 <view class="top">
   <picker mode="date" value="{{date}}" fields="month" start="2000-01" end="2022-01" bindchange="bindDateChange">
     <view class="picker">
@@ -9,14 +11,14 @@
 
 <image src="../../icon/background.png" class="background"></image>
 <view>
-  <text class="zongzhichu">支出总预算:{{sumBudget}}</text>
+  <text class="zongzhichu">支出总预算:{{filters.toFix2(sumBudget)}}</text>
   
-    <text class="use">已用预算:{{sumOutcome}}
+    <text class="use">已用预算:{{filters.toFix2(sumOutcome)}}
       <text>
 
       </text>
     </text>
-      <text class="unuse">未用预算:{{leftBudget}}<text>
+      <text class="unuse">未用预算:{{filters.toFix2(leftBudget)}}<text>
     </text>
     </text>
 </view>

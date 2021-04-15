@@ -6,9 +6,9 @@ Page({
   data: {
     amoutList:'',
     outcomeList:'',
-    sumBudget:0,
-    sumOutcome:0,
-    leftBudget:0,
+    sumBudget:0.00,
+    sumOutcome:0.00,
+    leftBudget:0.00,
     index:0,
     fuid:app.globalData.uid,
     date:'2020-05',
@@ -111,6 +111,7 @@ Page({
             [index]:sum,
             sumBudget:oldSumBudget+sum,
           })
+          //console.log(parseInt(this.data.sumBudget.toFixed(2))+this.data.sumBudget.toFixed(2))
         },
 
         setOutcomeMoney:function(){
