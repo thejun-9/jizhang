@@ -33,6 +33,12 @@
         {
           "name": "pages/yusuan/yusuan",
           "pathName": "pages/yusuan/yusuan",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/register/register",
+          "pathName": "pages/register/register",
           "scene": null
         }
       ]

@@ -10,7 +10,7 @@ Page({
         KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
         keyShow: true,//默认显示键盘
         fuid:app.globalData.uid,
-        type:'其它',
+        type:'',
         account_date:'2020-04-12'
     },
     bindDateChange:function(e){
@@ -83,6 +83,11 @@ Page({
     payTap(){
         var that=this
       //console.log(that.data.content);
+      var flag=true;
+      if(this.data.type.length==0||this.data.content.length==0){
+        flag=false;
+      }
+      if(flag==true){
       wx.request({
         url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
         method:'POST',
@@ -105,9 +110,15 @@ Page({
         wx.showToast({
             title: '成功',
             icon: 'success',
-            duration: 2000//持续的时间
+            duration: 1000//持续的时间
           })
-        //console.log(_this.data.content)
+      }else{
+        wx.showToast({
+          title: '信息不完整',
+          icon: 'none',
+          duration: 1000//持续的时间
+        })
+      }
     },
     zhichu()
     {

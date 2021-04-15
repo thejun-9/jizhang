@@ -4,19 +4,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-      content: '',//输入内容
+      content:'',//输入内容
       KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
       keyShow: true,//默认显示键盘
       date:'2021-04',
+      type:''
   },
-  //点击界面键盘消失
-//   hindKeyboard() {
-//       var _this = this
-//       _this.setData({
-//           keyShow: false
-//       });
-//   },
-  //点击输入框，键盘显示
   showKeyboard() {
       var _this = this
       _this.setData({
@@ -76,28 +69,47 @@ Page({
         type:ename
       })
   },
-  // 付款
-  payTap(optioons){
-      var _this = this;
-      var date=optioons.date;
+  // 付款 
+  payTap(options){
+      var that = this;
+      var date=options.date;
       this.setData({
           date:date
       })
-      wx.request({
-        url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
-        method:'POST',
-        data: {
-          amout:that.data.content,
-          type:that.data.type,
-          fuid:app.globalData.uid,
-          account_date:date
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        },
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
+      var flag=true;
+      if(this.data.type.length==0||this.data.content.length==0){
+        flag=false;
+      }
+      console.log(this.data.type)
+      console.log(this.data.content)
+      if(flag==true){
+        wx.request({
+            url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
+            method:'POST',
+            data: {
+            amout:that.data.content,
+            type:that.data.type,
+            fuid:app.globalData.uid,
+            account_date:date
+            },
+            header: {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            success: function (res) {
+            console.log(res.data)
+            }
+        })
+        wx.showToast({
+            title: '成功',
+            icon: 'success',
+            duration: 1000//持续的时间
+        })
+      }else{
+        wx.showToast({
+          title: '信息不完整',
+          icon: 'none',
+          duration: 1000//持续的时间
+        })
+      } 
   } 
 })
