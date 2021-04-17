@@ -8,6 +8,7 @@ page{
 .year_month{
     color: white;
     font-size: 40rpx;
+    padding-left:25rpx
 }
 .tabs{}
 .tabs_title{

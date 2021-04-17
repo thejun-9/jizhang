@@ -44,6 +44,7 @@ Page({
       })
       //this.createCharts();
     }) 
+    this.data.data1=wx.getStorageSync('id')
     console.log(this.data.amoutList)
 
     let j=0;
@@ -56,25 +57,25 @@ Page({
     let datelist = ['周日','周一','周二','周三','周四','周五','周六',];
     for(let i=0;i<this.data.data1.length;i++){
       if(i+1<this.data.data1.length&&i>=j&&this.data.data1[i][4]==this.data.data1[i+1][4]){
-        total_mon = this.data.data1[i][3]+this.data.data1[i+1][3];
-        if(this.data.data1[i][3]>0){
-          get_mon += this.data.data1[i][3];
+        total_mon = this.data.data1[i][2]+this.data.data1[i+1][2];
+        if(this.data.data1[i][2]>0){
+          get_mon += this.data.data1[i][2];
         }else{
-          pay_mon += -this.data.data1[i][3];
+          pay_mon += -this.data.data1[i][2];
         }
-        if(this.data.data1[i+1][3]>0){
-          get_mon += this.data.data1[i+1][3];
+        if(this.data.data1[i+1][2]>0){
+          get_mon += this.data.data1[i+1][2];
         }else{
-          pay_mon += -this.data.data1[i+1][3];
+          pay_mon += -this.data.data1[i+1][2];
         }
         for(j=i+2;j<this.data.data1.length&&this.data.data1[j][4]==this.data.data1[j-1][4];j++){
           if(this.data.data1[j][4]==this.data.data1[j-1][4]){
-            total_mon = total_mon+this.data.data1[j][3];
+            total_mon = total_mon+this.data.data1[j][2];
           }
-          if(this.data.data1[j][3]>0){
-            get_mon += this.data.data1[j][3];
+          if(this.data.data1[j][2]>0){
+            get_mon += this.data.data1[j][2];
           }else{
-            pay_mon += -this.data.data1[j][3];
+            pay_mon += -this.data.data1[j][2];
           }
         }
         mylist.push({
@@ -93,8 +94,8 @@ Page({
           week:datelist[new Date(this.data.data1[i][4]).getDay()],
           get:0,
           pay:0,
-          type:this.data.data1[i][2],
-          mon:this.data.data1[i][3],
+          type:this.data.data1[i][3],
+          mon:this.data.data1[i][2],
           change:1
         })
         total_pay+=pay_mon;
@@ -104,10 +105,10 @@ Page({
         pay_mon=0;
         total_mon=0;
       }else if((i+1<this.data.data1.length&&i-1>=0&&this.data.data1[i][4]!=this.data.data1[i+1][4]&&this.data.data1[i][4]!=this.data.data1[i-1][4])||(i==0&&i+1<this.data.data1.length&&this.data.data1[i][4]!=this.data.data1[i+1][4])||(i==this.data.data1.length-1&&i-1>=0&&this.data.data1[i][4]!=this.data.data1[i-1][4])){
-        if(this.data.data1[i][3]>0){
-          get_mon = this.data.data1[i][3];
+        if(this.data.data1[i][2]>0){
+          get_mon = this.data.data1[i][2];
         }else{
-          pay_mon = -this.data.data1[i][3];
+          pay_mon = -this.data.data1[i][2];
         }
         mylist.push({
           data:this.data.data1[i][4].substring(0,7),
@@ -116,7 +117,7 @@ Page({
           get:get_mon,
           pay:pay_mon,
           type:"",
-          mon:this.data.data1[i][3],
+          mon:this.data.data1[i][2],
           change:0
         })
         mylist.push({
@@ -125,13 +126,13 @@ Page({
           week:datelist[new Date(this.data.data1[i][4]).getDay()],
           get:0,
           pay:0,
-          type:this.data.data1[i][2],
-          mon:this.data.data1[i][3],
+          type:this.data.data1[i][3],
+          mon:this.data.data1[i][2],
           change:1
         })
         total_pay+=pay_mon;
         total_get+=get_mon;
-        total_remain+=this.data.data1[i][3];
+        total_remain+=this.data.data1[i][2];
         get_mon=0;
         pay_mon=0;
       }else{
@@ -141,8 +142,8 @@ Page({
           week:datelist[new Date(this.data.data1[i][4]).getDay()],
           get:0,
           pay:0,
-          type:this.data.data1[i][2],
-          mon:this.data.data1[i][3],
+          type:this.data.data1[i][3],
+          mon:this.data.data1[i][2],
           change:1
         })
       }
