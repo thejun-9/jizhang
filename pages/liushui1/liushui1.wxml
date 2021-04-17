@@ -1,16 +1,20 @@
-<view style="display:flex;background-color:#DAA520">
+<view style="display:flex;background-color:#DAA520" class="box1">
     <picker mode="date" value="{{date}}" fields="month" start="2000-01" end="2021-05" bindchange="bindDateChange">
     <view class="picker">
         <text class="year_month">选择月份:{{date}}</text>
     </view>
 </picker>
-<button size="mini" style="background-color:#DAA520;font-size: 32rpx;color:#fff" bindtap="switch">切换模式</button>
+<!-- <button size="mini" style="background-color:#DAA520;font-size: 32rpx;color:#fff" bindtap="switch">切换模式</button> -->
 </view>
 
-<view class="tabs">
+<!-- <view class="tabs">
     <view class="tabs_title">
         <view wx:for="{{tabs}}" wx:key="id" class="title_item {{item.isActive?'active':''}}" bindtap="handleItemTab" data-index="{{index}}">{{item.name}}</view>
     </view>
+</view> -->
+<view class="box">
+    <select prop-array='{{selectArray}}'  bind:select='select' ></select>
+    <button size="mini" style="background-color:whitesmoke;color:orange;" bindtap="switch">切换模式</button>
 </view>
 <view class="tabs_content">
     <view class="account_info">

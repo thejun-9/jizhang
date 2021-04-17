@@ -13,21 +13,21 @@ Page({
     date:'2020-05',
     space:'       ',
     condition:'amout',
-    tabs:[
+    selectArray:[
         {id:0,
-        name:"日期升序",
+        text:"日期升序",
         orderName:'account_date',
         isActive:true},
         {id:1,
-        name:"日期降序",
+        text:"日期降序 ",
         orderName:'account_date desc',
         isActive:false},
         {id:2,
-        name:"金额升序",
+        text:"金额升序 ",
         orderName:'amout',
         isActive:false},
         {id:3,
-        name:"金额降序",
+        text:"金额降序 ",
         orderName:'amout desc',
         isActive:false}
       ]
@@ -38,19 +38,46 @@ Page({
         })
         this.onLoad()
     },
-    handleItemTab(e){
-        const {index}=e.currentTarget.dataset;
-        let tabs=this.data.tabs;
-        tabs.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false);
-        this.setData({tabs})
-        /**
-         * 用wx.request根据要求(月份，排序方式)请求数据
-         */
+    // handleItemTab(e){
+    //     const {index}=e.currentTarget.dataset;
+    //     let tabs=this.data.tabs;
+    //     tabs.forEach((v,i)=>i===index?v.isActive=true:v.isActive=false);
+    //     this.setData({tabs})
+    //     /**
+    //      * 用wx.request根据要求(月份，排序方式)请求数据
+    //      */
+    //     this.setData({
+    //         condition:tabs[index].orderName
+    //     })
+    //     this.onLoad();
+    // },
+    select: function(e) {
+      //console.log(e.detail);
+      let selectArray=this.data.selectArray;
+      if(e.detail.id==0)
+      {
         this.setData({
-            condition:tabs[index].orderName
-        })
-        this.onLoad();
-    },
+        condition:selectArray[0].orderName
+               })
+      }else if(e.detail.id==1)
+      {
+        this.setData({
+          condition:selectArray[1].orderName
+                 })
+      }else if(e.detail.id==2){
+        this.setData({
+          condition:selectArray[2].orderName
+                 })
+      
+      }else{
+        this.setData({
+          condition:selectArray[3].orderName
+                 })
+      }
+      this.onLoad();
+ 
+ 
+   },
     handleItem(e){
         //console.log(e);
         wx.setStorageSync('record', e.currentTarget.dataset);

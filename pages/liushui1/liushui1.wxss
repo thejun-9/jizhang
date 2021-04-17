@@ -46,3 +46,22 @@ page{
     width:190rpx;
     text-align: center;
 }
+button{
+    
+    justify-content: center;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 1000;
+}
+.box1{
+    display: flex;
+    justify-content: center;
+}
+.box{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 1000;
+}

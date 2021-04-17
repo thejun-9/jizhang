@@ -1,4 +1,52 @@
 {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "setting": {},
+    "condition": {
+        "plugin": {
+            "list": []
+        },
+        "game": {
+            "list": []
+        },
+        "gamePlugin": {
+            "list": []
+        },
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "流水",
+                    "pathName": "pages/liushui/liushui",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "流水1",
+                    "pathName": "pages/liushui1/liushui1",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "记一笔",
+                    "pathName": "pages/jiyibi/jiyibi",
+                    "query": "",
+                    "scene": null
+                }
+            ]
+        }
+    }
+=======
+=======
+>>>>>>> HJY
+=======
+>>>>>>> zj-2
+=======
+>>>>>>> HJY
+>>>>>>> 4.17-6
   "setting": {},
   "condition": {
     "plugin": {
@@ -33,12 +81,29 @@
         {
           "name": "pages/yusuan/yusuan",
           "pathName": "pages/yusuan/yusuan",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> HJY
+>>>>>>> 4.17-6
           "query": "",
           "scene": null
         },
         {
           "name": "pages/register/register",
           "pathName": "pages/register/register",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> HJY
+=======
+>>>>>>> zj-2
+=======
+>>>>>>> 4.17-6
           "query": "",
           "scene": null
         },
@@ -63,15 +128,32 @@
         {
           "name": "pages/liushui1/liushui1",
           "pathName": "pages/liushui1/liushui1",
+<<<<<<< HEAD
           "query": "",
           "scene": null
         },
         {
           "name": "pages/charts/charts",
           "pathName": "pages/charts/charts",
+=======
+>>>>>>> HJY
+>>>>>>> 4.17-6
           "scene": null
         }
       ]
     }
   }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> HJY
+=======
+>>>>>>> HJY
+=======
+>>>>>>> zj-2
+=======
+>>>>>>> HJY
+>>>>>>> 4.17-6
 }

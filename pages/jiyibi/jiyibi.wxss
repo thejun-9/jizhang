@@ -161,7 +161,13 @@ page {
     display: flex;
     flex-flow: row;
 }
+.size{
+    color:		#C0C0C0;
+    font-weight: 500;
+}
 .picker{
+    display: flex;
+    flex-flow: row;
     width: 200px;  
     font-size:20px;
     font-weight: 548;

@@ -77,6 +77,11 @@ Page({
   },
         // 生命周期函数onload用于监听页面加载 
         onLoad: function() {
+          this.setData({
+            sumBudget:0.00,
+            sumOutcome:0.00,
+            leftBudget:0.00
+          })
           var that=this;
           for(let i=0;i<that.data.part.length;i++){
             var type=that.data.part[i].type

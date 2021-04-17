@@ -160,7 +160,20 @@ page {
     display: flex;
     flex-flow: row;
 }
+.size{
+    color:		#C0C0C0;
+    font-weight: 500;
+}
 .picker{
-    width: 200px;
-    padding-top: 10rpx;
+    display: flex;
+    flex-flow: row;
+    width: 200px;  
+    font-size:20px;
+    font-weight: 548;
+    height: 33px;
+    text-align:center;
+    background:whitesmoke;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
 }

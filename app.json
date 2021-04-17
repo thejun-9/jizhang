@@ -44,10 +44,10 @@
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/charts/charts",
-      "text": "图表",
-      "iconPath": "icon/tubiao.png",
-      "selectedIconPath": "icon/tubiao.png"
+      "pagePath": "pages/paipai/paipai",
+      "text": "派派",
+      "iconPath": "icon/paipai1.png",
+      "selectedIconPath": "icon/paipai1.png"
     },
     {
       "pagePath": "pages/liushui1/liushui1",
@@ -62,7 +62,6 @@
       "selectedIconPath": "icon/zhangdan1.png"
     
     },
-
     {
       "pagePath": "pages/yusuan/yusuan",
       "text": "预算",
@@ -70,10 +69,11 @@
       "selectedIconPath": "icon/yusuanguanli.png"
     },
     {
-      "pagePath": "pages/paipai/paipai",
-      "text": "派派",
-      "iconPath": "icon/head.png",
-      "selectedIconPath": "icon/head.png"
+      "pagePath": "pages/charts/charts",
+      "text": "图表",
+      "iconPath": "icon/tubiao1.png",
+      "selectedIconPath": "icon/tubiao1.png"
+      
     }
   ]
   },

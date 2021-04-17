@@ -160,8 +160,10 @@ Page({
     let data11=this.data.data1[1][4];
     let week=datelist[new Date(data11).getDay()]
     console.log(week)
-
-    
+    let z=mylist.length
+    for(let k=0;k<z;k++){
+      mylist.pop()
+    }
   },
 
   /**
@@ -213,7 +215,7 @@ Page({
 
   },
   switch(){
-    wx.navigateTo({
+    wx.switchTab({
       url: '../../pages/liushui1/liushui1',
     })
   }
