@@ -13,18 +13,6 @@ Page({
     date:'2020-05',
     space:'       ',
     condition:'amout',
-    result: [
-        {
-          city_id: '001',
-          city_name: '北京'
-        }, {
-          city_id: '002',
-          city_name: '上海'
-        }, {
-          city_id: '003',
-          city_name: '深圳'
-     }
-      ],
     tabs:[
         {id:0,
         name:"日期升序",

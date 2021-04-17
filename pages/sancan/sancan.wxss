@@ -155,8 +155,6 @@
   margin-top: 8rpx;
 }
 
-
-
 .className {
   width: 6rpx;
   height: 66rpx;

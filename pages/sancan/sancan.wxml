@@ -27,7 +27,6 @@
     <view class="input_box1">
               <text class='content' wx:if="{{content}}" data-content="{{content}}" data-index="{{index}}" bindtap="leftMoney">{{content}}</text>
               <view class='className' wx:if="{{keyShow}}"></view>
-              
     </view>
   </view>
         <view class='key_box'>        

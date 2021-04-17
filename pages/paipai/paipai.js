@@ -283,11 +283,11 @@ Page({
           console.log(res.data)
         }
       })
-      wx.showToast({
-        title: '成功',
-        icon: 'success',
-        duration: 2000//持续的时间
-      })
+      // wx.showToast({
+      //   title: '成功',
+      //   icon: 'success',
+      //   duration: 2000//持续的时间
+      // })
  },
  /**
   * 发送点击监听

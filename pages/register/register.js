@@ -48,6 +48,10 @@ Page({
       _this.setData({
         showContent:'密码不为空'
       })
+    }else if(_this.data.password.length<6){
+      _this.setData({
+        showContent:'密码至少为6位'
+      })
     }else if(_this.data.password!=_this.data.passwordAgain){
       _this.setData({
         showContent:'两次输入密码不一致'

@@ -224,27 +224,39 @@ payTap(e){
   //console.log(that.data.content);
   //console.log(that.data.typeDetail);
   //console.log(that.data.fuid);
-  //console.log(that.data.date);
-  wx.request({
-    url: 'http://127.0.0.1:8088/WxDemo/AddBudget',
-    method:'POST',
-    data: {
-      amout:that.data.content,
-      type:that.data.typeDetail,
-      fuid:that.data.fuid,
-      date:that.data.date
-    },
-    header: {
-      'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-    },
-    success: function (res) {
-      console.log(res.data)
-    }
-  })
-  wx.showToast({
-    title: '成功',
-    icon: 'success',
-    duration: 2000//持续的时间
-  })
+  //console.log(that.data.date); 
+  var flag=true;
+  if(this.data.type.length==0||this.data.content.length==0){
+    flag=false;
+  }
+  if(flag==true){
+    wx.request({
+      url: 'http://127.0.0.1:8088/WxDemo/AddBudget',
+      method:'POST',
+      data: {
+        amout:that.data.content,
+        type:that.data.typeDetail,
+        fuid:that.data.fuid,
+        date:that.data.date
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      },
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+    wx.showToast({
+      title: '成功',
+      icon: 'success',
+      duration: 2000//持续的时间
+    })
+  }else{
+    wx.showToast({
+      title: '信息不完整',
+      icon: 'none',
+      duration: 2000//持续的时间
+    })
+  }
 },
 })

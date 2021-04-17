@@ -147,18 +147,28 @@ page {
     font-weight: normal;
 }
 .zhichu{
-   padding-left: 10px;
+   
    /* background-color: darkkhaki; */
    align-items: center;
    text-align: center;
    align-content: center;
    border-bottom: 1px solid whitesmoke;
+   border-radius: 30px;
+    font-size:30px;
+    background: whitesmoke;
 }
 .zhichu-box{
     display: flex;
     flex-flow: row;
 }
 .picker{
-    width: 200px;
-    padding-top: 10rpx;
+    width: 200px;  
+    font-size:20px;
+    font-weight: 548;
+    height: 33px;
+    text-align:center;
+    background:whitesmoke;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
 }

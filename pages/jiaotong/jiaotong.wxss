@@ -150,7 +150,6 @@
   /* width:120px; */
 }
 
-
 .content.place {
   font-size: 40rpx;
   color: #E2E2E2;

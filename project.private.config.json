@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "setting": {},
     "condition": {
         "plugin": {
@@ -35,6 +36,8 @@
         }
     }
 =======
+=======
+>>>>>>> HJY
   "setting": {},
   "condition": {
     "plugin": {
@@ -69,10 +72,22 @@
         {
           "name": "pages/yusuan/yusuan",
           "pathName": "pages/yusuan/yusuan",
+<<<<<<< HEAD
+=======
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/register/register",
+          "pathName": "pages/register/register",
+>>>>>>> HJY
           "scene": null
         }
       ]
     }
   }
+<<<<<<< HEAD
+>>>>>>> HJY
+=======
 >>>>>>> HJY
 }
