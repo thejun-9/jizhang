@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "setting": {},
     "condition": {
         "plugin": {
@@ -41,6 +42,8 @@
 >>>>>>> HJY
 =======
 >>>>>>> zj-2
+=======
+>>>>>>> HJY
   "setting": {},
   "condition": {
     "plugin": {
@@ -77,16 +80,46 @@
           "pathName": "pages/yusuan/yusuan",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> HJY
           "query": "",
           "scene": null
         },
         {
           "name": "pages/register/register",
           "pathName": "pages/register/register",
+<<<<<<< HEAD
 >>>>>>> HJY
 =======
 >>>>>>> zj-2
+=======
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/select/select",
+          "pathName": "pages/select/select",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/picture1/picture1",
+          "pathName": "pages/picture1/picture1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/paipai/paipai",
+          "pathName": "pages/paipai/paipai",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/liushui1/liushui1",
+          "pathName": "pages/liushui1/liushui1",
+>>>>>>> HJY
           "scene": null
         }
       ]
@@ -94,9 +127,12 @@
   }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> HJY
 =======
 >>>>>>> HJY
 =======
 >>>>>>> zj-2
+=======
+>>>>>>> HJY
 }

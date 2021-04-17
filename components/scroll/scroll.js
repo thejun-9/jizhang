@@ -168,6 +168,12 @@ Page({
             isActive:false,
             url:"../../icon/baojian.png"
           },
+          {
+            id:1,
+            name:"救护车",
+            isActive:false,
+            url:"../../icon/jiuhuche.png"
+          }
             
           ],
           picfun:[

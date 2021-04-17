@@ -21,7 +21,8 @@
     "pages/yule/yule",
     "pages/qita/qita",
     "pages/chaojiliushui/chaojiliushui",
-    "pages/paipai/paipai"
+    "pages/paipai/paipai",
+    "pages/picture1/picture1"
   ],
   "plugins": {
     "chatbot": {
@@ -68,7 +69,7 @@
       "selectedIconPath": "icon/yusuanguanli.png"
     },
     {
-      "pagePath": "pages/charts/charts",
+      "pagePath": "pages/picture1/picture1",
       "text": "图表",
       "iconPath": "icon/tubiao1.png",
       "selectedIconPath": "icon/tubiao1.png"

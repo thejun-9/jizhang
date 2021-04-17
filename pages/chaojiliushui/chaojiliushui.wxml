@@ -1,5 +1,5 @@
 <!--pages/page1/page1.wxml-->
-<view class="total">
+<view class="total" style="background:url('../../icon/backg1.png')">
   <!--<image class="total_img" src='../../icon/shan.jpg' mode="aspectFill"></image>-->
   <view class='total_title'>结余</view>
   <view class='total_money'>{{total_remain}}</view>

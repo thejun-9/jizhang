@@ -4,7 +4,16 @@
     </view>
 </picker>
 <view class="container">
-    <canvas canvas-id="lineCanvas" disable-scroll="true" class="lineCanvas" bindtouchstart="touchHandler" style="width:300px;height:200px;"></canvas>
-    <canvas canvas-id="radarCanvasOutcome" disable-scroll="true" class="radarCanvasOutcome" style="width:300px; height:200px;"></canvas>
-    <canvas canvas-id="radarCanvasIncome" disable-scroll="true" class="radarCanvasIncome" style="width:300px; height:200px;"></canvas>
+    <view hidden='{{lineHidden}}'>
+        <canvas canvas-id="lineCanvas" disable-scroll="true" class="lineCanvas" bindtouchstart="touchHandler" style="width:300px;height:200px;"></canvas>
+    </view>
+    <view hidden='{{noMessage}}'>
+        {{date}} 无数据！
+    </view>
+    <view hidden='{{radarOutcomeHidden}}'>
+        <canvas canvas-id="radarCanvasOutcome" disable-scroll="true" class="radarCanvasOutcome" style="width:300px; height:200px;"></canvas>
+    </view>
+    <view hidden='{{radarIncomeHidden}}'>
+        <canvas canvas-id="radarCanvasIncome" disable-scroll="true" class="radarCanvasIncome" style="width:300px; height:200px;"></canvas>
+    </view>
 </view>
