@@ -213,7 +213,7 @@ Page({
 
   },
   switch(){
-    wx.navigateTo({
+    wx.switchTab({
       url: '../../pages/liushui1/liushui1',
     })
   }
