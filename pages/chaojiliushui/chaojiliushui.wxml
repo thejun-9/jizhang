@@ -1,15 +1,16 @@
 <!--pages/page1/page1.wxml-->
+<wxs module="filters" src="../../utils/addmul.wxs"></wxs>
 <view class="total">
   <!--<image class="total_img" src='../../icon/shan.jpg' mode="aspectFill"></image>-->
   <view class='total_title'>结余</view>
-  <view class='total_money'>{{total_remain}}</view>
-  <view class='total_get'>收入： {{total_get}}|支出： {{total_pay}}</view>
+  <view class='total_money'>{{filters.toFix2(total_remain)}}</view>
+  <view class='total_get'>收入： {{filters.toFix2(total_get)}}|支出： {{filters.toFix2(total_pay)}}</view>
 </view>
 <view>
   <view class='flex-row'>
 
-  <text style="font-size:38rpx;color:#808080">{{total_month}}月.{{total_year}} 结余{{total_remain}}</text>
-  <button size="mini" style="color:orange" bindtap="switch">切换模式</button>
+  <text style="font-size:38rpx;color:#808080">{{total_month}}月.{{total_year}} 结余{{filters.toFix2(total_remain)}}</text>
+  <!--<button size="mini" style="color:orange" bindtap="switch">切换模式</button>--><!--这个按钮不好使-->
   </view>
   <view style="height:20rpx;"></view>
   <block  wx:for='{{mylist}}' >
@@ -21,10 +22,10 @@
     </view>
     <view class='flex-fir'>
       <view>
-        <text style="font-size:50rpx;color:#000">{{item.mon}}</text>
+        <text style="font-size:50rpx;color:#000">{{filters.toFix2(item.mon)}}</text>
         <text style="font-size:30rpx;color:#808080">结余</text>
       </view>
-      <text style="font-size:30rpx;color:#808080">收入 {{item.get}}|支出 {{item.pay}}</text>
+      <text style="font-size:30rpx;color:#808080">收入 {{filters.toFix2(item.get)}}|支出 {{filters.toFix2(item.pay)}}</text>
     </view>
   </view>
   <view wx:if='{{item.change==1}}' class='flex-row'  style="width:700rpx;height:130rpx;">
@@ -34,10 +35,10 @@
     </view>
     <view class='flex-fir' style="width:400rpx">
       <text style="font-size:40rpx;color:#000">{{item.type}}</text>
-      <text style="font-size:25rpx;color:#808080">18：05 现金</text>
+      <!--<text style="font-size:25rpx;color:#808080">18：05 现金</text>-->
     </view>
     <view class='flex-fir'>
-      <text style="font-size:50rpx;color:green">{{item.mon}}</text>
+      <text style="font-size:50rpx;color:green">{{filters.toFix2(item.mon)}}</text>
     </view>
   </view>
 </block>

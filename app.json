@@ -24,6 +24,17 @@
     "pages/paipai/paipai",
     "pages/picture1/picture1"
   ],
+  "plugins": {
+    "chatbot": {
+      "version": "1.0.1",
+      "provider": "wx8c631f7e9f2465e1"
+    }
+    
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "sitemapLocation": "sitemap.json",
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#FFD700",
@@ -41,14 +52,14 @@
     {
       "pagePath": "pages/liushui1/liushui1",
       "text": "流水",
-      "iconPath": "icon/liushui.png",
-      "selectedIconPath": "icon/liushui.png"
+      "iconPath": "icon/liushui1.png",
+      "selectedIconPath": "icon/liushui1.png"
     },
     {
       "pagePath": "pages/jiyibi/jiyibi",
       "text": "记一笔",
-      "iconPath": "icon/jizhangben.png",
-      "selectedIconPath": "icon/jizhangben.png"
+      "iconPath": "icon/zhangdan1.png",
+      "selectedIconPath": "icon/zhangdan1.png"
     
     },
 

@@ -5,6 +5,22 @@ var msgList = [];
 /**
  * 初始化数据
  */
+var plugin = requirePlugin("chatbot");
+var bgam = wx.createInnerAudioContext();
+var id = 1
+
+App({
+  onLaunch: function() {
+    console.log(plugin, "+++");
+    plugin.init({
+        appid: "Qhlze7racViunn4vNTNtT4lSHoq5qh", //小程序示例账户，仅供学习和参考
+        success: () => {},
+        fail: error => {}
+    });
+  }
+});
+
+
 function initData(that) {
  inputVal = '';
  
@@ -33,6 +49,7 @@ Page({
   * 生命周期函数--监听页面加载
   */
  onLoad: function(options) {
+ 
   initData(this);
   this.setData({
    //cusHeadIcon: app.globalData.userInfo.avatarUrl,
@@ -248,19 +265,54 @@ Page({
     kind=str1.substring(0,2)
     mon=parseFloat(str1.substring(2,str1.length-1))
    }else{
-    str2="请告诉我一个花费或收入的类型喔,如(三餐1000元)"
+    plugin.send({
+      query: str1,
+      success: res => {
+        console.log(res);
+        if(res.msg[0].ans_node_name=="新闻"){
+          str2=res.msg[0].articles[0].description
+        }else if(res.msg[0].ans_node_name=="音乐"){
+          str2=res.msg[0].singer_name+res.msg[0].song_name
+          bgam.src = res.msg[0].music_url
+          bgam.play()
+        }
+        msgList.push({
+          speaker: 'server',
+          contentType: 'text',
+          content: str2
+         })
+         this.setData({
+          msgList
+         });
+      },
+      fail: error => {res.more_info.news_ans_detail}
+    });
    }}else{
-    str2="请告诉我一个花费或收入的类型喔,如(三餐1000元)"
+    plugin.send({
+      query:str1,
+      success: res => {
+        console.log(res);
+        if(res.msg[0].ans_node_name=="新闻"){
+          str2=res.msg[0].articles[0].description
+        }else if(res.msg[0].ans_node_name=="音乐"){
+          str2=res.msg[0].singer_name+res.msg[0].song_name
+          bgam.src = res.msg[0].music_url
+          bgam.play()
+        }
+        msgList.push({
+          speaker: 'server',
+          contentType: 'text',
+          content: str2
+         })
+         this.setData({
+          msgList
+         });
+      },
+      fail: error => {res.more_info.news_ans_detail}
+    });
    }
 
-   msgList.push({
-    speaker: 'server',
-    contentType: 'text',
-    content: str2
-   })
-   this.setData({
-    msgList
-   });
+   
    var that=this
       //console.log(that.data.content);
       console.log(mon);

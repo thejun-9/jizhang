@@ -57,6 +57,12 @@
         {
           "name": "pages/paipai/paipai",
           "pathName": "pages/paipai/paipai",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/liushui1/liushui1",
+          "pathName": "pages/liushui1/liushui1",
           "scene": null
         }
       ]

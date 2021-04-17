@@ -121,5 +121,14 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    switch(){
+      wx.setStorage({
+        key:"id",
+        data:this.data.amoutList
+      })
+      wx.navigateTo({
+        url: '../../pages/chaojiliushui/chaojiliushui',
+      })
     }
 })
