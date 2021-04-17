@@ -63,6 +63,12 @@
         {
           "name": "pages/liushui1/liushui1",
           "pathName": "pages/liushui1/liushui1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/charts/charts",
+          "pathName": "pages/charts/charts",
           "scene": null
         }
       ]

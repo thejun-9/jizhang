@@ -44,7 +44,7 @@
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/picture1/picture1",
+      "pagePath": "pages/charts/charts",
       "text": "图表",
       "iconPath": "icon/tubiao.png",
       "selectedIconPath": "icon/tubiao.png"

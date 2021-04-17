@@ -8,13 +8,26 @@ const app = getApp();
 
 Page({
   data: {
+    selectArray: [{
+      id:0,
+      "text": "折线图"
+    }, 
+    {
+      id:1,
+      "text": "支出雷达图"
+    },
+    {
+      id:2,
+       "text":'收入雷达图',
+    },    
+    ],
     amoutList:[],
     date:'2021-04',
-    lineHidden:true,
+    lineHidden:false,
     radarOutcomeHidden:true,
     radarIncomeHidden:true,
     noMessage:true,
-    id:0,
+    id:0
   },
   //日期选择器
   bindDateChange:function(e){
@@ -27,6 +40,31 @@ Page({
   //loadMyData函数用于打印myData的值 
   loadMyData() {
     //console.log('获取到的数据为:' + this.data.amoutList[5])
+  },
+  select: function(e) {
+    this.setData({
+      id:e.detail.id
+    })
+    if(this.data.id==0){
+      this.setData({
+        lineHidden:false,
+        radarOutcomeHidden:true,
+        radarIncomeHidden:true
+      })
+    }else if(this.data.id==1){
+      this.setData({
+        lineHidden:true,
+        radarOutcomeHidden:false,
+        radarIncomeHidden:true
+      })
+    }else{
+      this.setData({
+        lineHidden:true,
+        radarOutcomeHidden:true,
+        radarIncomeHidden:false
+      })
+    }
+    this.onLoad(this.data.id);
   },
   createCharts:function(){
     var that=this;
@@ -76,7 +114,8 @@ Page({
     if(that.data.amoutList[4].length==0){
       if(this.data.id==1){
         this.setData({
-          noMessage:false
+          noMessage:false,
+          radarOutcomeHidden:true
         })
       }
     }else{
@@ -98,7 +137,8 @@ Page({
     if(that.data.amoutList[2].length==0){
       if(this.data.id==2){
         this.setData({
-          noMessage:false
+          noMessage:false,
+          radarIncomeHidden:true
         })
       }
     }else{
@@ -120,18 +160,11 @@ Page({
   },
   // 生命周期函数onload用于监听页面加载 
   onLoad: function(options) {
-    console.log(options)
-    if(options!=0&&options!=1&&options!=2){
-      var id=options.id
-      this.setData({
-        id:id
-      })
-    }else{
+    //console.log(options)
       var id=options
       this.setData({
         id:id
       })
-    }
     if(this.data.id==0){
       this.setData({
         lineHidden:false
@@ -140,11 +173,14 @@ Page({
       this.setData({
         radarOutcomeHidden:false
       })
-    }else{
+    }else if(this.data.id==2){
       this.setData({
         radarIncomeHidden:false
       })
     }
+    /*console.log(this.data.lineHidden)
+    console.log(this.data.radarOutcomeHidden)
+    console.log(this.data.radarIncomeHidden)*/
     utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/lineCanvas?uid='+app.globalData.uid+'&date='+this.data.date) 
     // 使用.then处理结果 
     .then(res => { 
