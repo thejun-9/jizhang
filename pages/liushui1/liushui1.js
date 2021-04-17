@@ -8,7 +8,14 @@ Page({
      * 页面的初始数据
      */
     data: {
-        amoutList:[],
+        amoutList:[[7,2,-51.0,'其它','2020-09-05'],
+        [7,2,-51.0,'其它','2020-09-05'],
+        [7,2,-51.0,'其它','2020-09-05'],
+                    [7,2,-51.0,'其它','2020-09-05'],
+                    [11,2,76.0,'其它','2020-09-10'],
+                    [11,2,76.0,'其它','2020-09-10'],
+                    [13,2,78.0,'其它','2020-09-17'],
+                    [13,2,78.0,'其它','2020-09-17']],
     accountinfo:[],
     date:'2020-05',
     space:'       ',
@@ -19,15 +26,15 @@ Page({
         orderName:'account_date',
         isActive:true},
         {id:1,
-        name:"日期降序",
+        name:"日期降序 ",
         orderName:'account_date desc',
         isActive:false},
         {id:2,
-        name:"金额升序",
+        name:"金额升序 ",
         orderName:'amout',
         isActive:false},
         {id:3,
-        name:"金额降序",
+        name:"金额降序 ",
         orderName:'amout desc',
         isActive:false}
       ]
@@ -121,5 +128,14 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    switch(){
+      wx.setStorage({
+        key:"id",
+        data:this.data.amoutList
+      })
+      wx.navigateTo({
+        url: '../../pages/chaojiliushui/chaojiliushui',
+      })
     }
 })

@@ -1,6 +1,7 @@
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "setting": {},
     "condition": {
         "plugin": {
@@ -38,6 +39,8 @@
 =======
 =======
 >>>>>>> HJY
+=======
+>>>>>>> zj-2
   "setting": {},
   "condition": {
     "plugin": {
@@ -73,6 +76,7 @@
           "name": "pages/yusuan/yusuan",
           "pathName": "pages/yusuan/yusuan",
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           "query": "",
           "scene": null
@@ -81,13 +85,18 @@
           "name": "pages/register/register",
           "pathName": "pages/register/register",
 >>>>>>> HJY
+=======
+>>>>>>> zj-2
           "scene": null
         }
       ]
     }
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> HJY
 =======
 >>>>>>> HJY
+=======
+>>>>>>> zj-2
 }
