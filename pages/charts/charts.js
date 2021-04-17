@@ -10,7 +10,11 @@ Page({
   data: {
     amoutList:[],
     date:'2021-04',
-    //fuid:app.globalData.uid,
+    lineHidden:true,
+    radarOutcomeHidden:true,
+    radarIncomeHidden:true,
+    noMessage:true,
+    id:0,
   },
   //日期选择器
   bindDateChange:function(e){
@@ -18,7 +22,7 @@ Page({
     this.setData({
         date:e.detail.value
     })
-    this.onLoad()
+    this.onLoad(this.data.id)
   },
   //loadMyData函数用于打印myData的值 
   loadMyData() {
@@ -26,7 +30,6 @@ Page({
   },
   createCharts:function(){
     var that=this;
-    //console.log(this.data.amoutList);
     var windowWidth = 320;
     try {
       var res = wx.getSystemInfoSync();
@@ -34,7 +37,6 @@ Page({
     } catch (e) {
       console.error('getSystemInfoSync failed!');
     }
-    //var simulationData = this.createSimulationData();
     lineChart = new wxCharts({
       canvasId: 'lineCanvas',
       type: 'line',
@@ -71,7 +73,16 @@ Page({
         lineStyle: 'curve'
       }
     });
-    if(that.data.amoutList[4].length>2){
+    if(that.data.amoutList[4].length==0){
+      if(this.data.id==1){
+        this.setData({
+          noMessage:false
+        })
+      }
+    }else{
+      this.setData({
+        noMessage:true
+      })
       radarChartOutcome = new wxCharts({
         canvasId: 'radarCanvasOutcome',
         type: 'radar',
@@ -84,7 +95,16 @@ Page({
         height: 200
       });
     }
-    if(that.data.amoutList[2].length>2){
+    if(that.data.amoutList[2].length==0){
+      if(this.data.id==2){
+        this.setData({
+          noMessage:false
+        })
+      }
+    }else{
+      this.setData({
+        noMessage:true
+      })
       radarChartIncome = new wxCharts({
         canvasId: 'radarCanvasIncome',
         type: 'radar',
@@ -97,27 +117,46 @@ Page({
         height: 200
       });
     }
-    //console.log(that.data.amoutList[2].length)
-    //console.log(that.data.amoutList[4].length)
   },
   // 生命周期函数onload用于监听页面加载 
-  onLoad: function() {
-    console.log(app.globalData.uid)
+  onLoad: function(options) {
+    console.log(options)
+    if(options!=0&&options!=1&&options!=2){
+      var id=options.id
+      this.setData({
+        id:id
+      })
+    }else{
+      var id=options
+      this.setData({
+        id:id
+      })
+    }
+    if(this.data.id==0){
+      this.setData({
+        lineHidden:false
+      })
+    }else if(this.data.id==1){
+      this.setData({
+        radarOutcomeHidden:false
+      })
+    }else{
+      this.setData({
+        radarIncomeHidden:false
+      })
+    }
     utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/lineCanvas?uid='+app.globalData.uid+'&date='+this.data.date) 
     // 使用.then处理结果 
     .then(res => { 
       this.setData({
         amoutList: res.data
       })
-      //console.log(this.data.amoutList)
-      //this.loadMyData()
       this.createCharts();
     }) 
   },
   touchHandler: function (e) {
     console.log(lineChart.getCurrentDataIndex(e));
     lineChart.showToolTip(e, {
-        // background: '#7cb5ec',
         format: function (item, category) {
             return category + '日 ' + item.name + ':' + item.data 
         }

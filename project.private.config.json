@@ -39,6 +39,24 @@
         {
           "name": "pages/register/register",
           "pathName": "pages/register/register",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/select/select",
+          "pathName": "pages/select/select",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/picture1/picture1",
+          "pathName": "pages/picture1/picture1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/paipai/paipai",
+          "pathName": "pages/paipai/paipai",
           "scene": null
         }
       ]

@@ -267,27 +267,35 @@ Page({
       console.log(kind);
       console.log(app.globalData.uid);
       console.log(that.data.date);
-      wx.request({
-        url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
-        method:'POST',
-        data: {
-          amout:mon,
-          type:kind,
-          fuid:app.globalData.uid,
-          account_date:that.data.date
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        },
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
-      wx.showToast({
-        title: '成功',
-        icon: 'success',
-        duration: 2000//持续的时间
-      })
+      if(mon!=null&&kind!=null){
+        wx.request({
+          url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
+          method:'POST',
+          data: {
+            amout:mon,
+            type:kind,
+            fuid:app.globalData.uid,
+            account_date:that.data.date
+          },
+          header: {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          },
+          success: function (res) {
+            console.log(res.data)
+          }
+        })
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 1000//持续的时间
+        })
+      }else{
+        wx.showToast({
+          title: '信息不完整',
+          icon: 'none',
+          duration: 1000//持续的时间
+        })
+      }
  },
  /**
   * 发送点击监听
