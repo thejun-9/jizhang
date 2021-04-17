@@ -46,3 +46,19 @@ page {
   border-radius: 10rpx;
   z-index: 10;
  }
+ .bright789_view_hide{
+  display: none;
+  
+ }
+ .bright789_view_show{
+  display: block;
+ 
+ } 
+ .flex-row{
+  display: flex;
+  
+}
+.progress {
+  width: 100%;
+  height: 20rpx;
+}

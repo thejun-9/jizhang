@@ -160,6 +160,11 @@ Page({
     let data11=this.data.data1[1][4];
     let week=datelist[new Date(data11).getDay()]
     console.log(week)
+    total_get=0;
+    total_pay=0;
+    total_remain=0;
+    total_year=0;
+    total_month=0
     let z=mylist.length
     for(let k=0;k<z;k++){
       mylist.pop()

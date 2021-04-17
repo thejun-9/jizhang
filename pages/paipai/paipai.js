@@ -27,7 +27,7 @@ function initData(that) {
  msgList = [{
    speaker: 'server',
    contentType: 'text',
-   content: '欢迎来到paipai记账φ(゜▽゜*)♪'
+   content: '欢迎来到paipai记账φ(゜▽゜*)♪ 输入类型名+金额+元可记账。如三餐50元'
   }
  ]
  that.setData({
@@ -42,7 +42,10 @@ Page({
   */
  data: {
   str:"",
-  date:'2021-04-15'
+  date:'2021-04-15',
+  mus_num:1,
+  por:0,
+  start_img:"../../icon/stop.png"
  },
  
  /**
@@ -54,13 +57,16 @@ Page({
   this.setData({
    //cusHeadIcon: app.globalData.userInfo.avatarUrl,
   });
+  
+ 
  },
  
  /**
   * 生命周期函数--监听页面显示
   */
  onShow: function() {
- 
+  
+  
  },
  
  /**
@@ -94,12 +100,18 @@ Page({
     })
  },
  handletap(e){
+   var that=this
+  
   msgList.push({
     speaker: 'customer',
     contentType: 'text',
-    content: this.data.str
+    content: this.data.str,
+    showView: false,
+    mu_icon:''
    })
    let str1,str2,kind,mon
+   let istrue = false
+   let mus_icon
    let reg = /^[0-9]+\.?[0-9]*$/;
    str1= this.data.str
    if(str1.substring(str1.length-1,str1.length)=="元"){
@@ -272,14 +284,31 @@ Page({
         if(res.msg[0].ans_node_name=="新闻"){
           str2=res.msg[0].articles[0].description
         }else if(res.msg[0].ans_node_name=="音乐"){
+          istrue=true
+          mus_icon=res.msg[0].pic_url
           str2=res.msg[0].singer_name+res.msg[0].song_name
           bgam.src = res.msg[0].music_url
           bgam.play()
+          console.log(res.msg[0].music_url)
+          setInterval(function() {
+            that.setData({
+              por:bgam.currentTime/bgam.duration*100
+            })
+         }, 2000);
+        }else{
+          if(res.msg[0].content==""){
+            str2=res.answer
+          }else{
+            str2=res.msg[0].content
+          }
+         
         }
         msgList.push({
           speaker: 'server',
           contentType: 'text',
-          content: str2
+          content: str2,
+          showView: istrue,
+          mu_icon:mus_icon
          })
          this.setData({
           msgList
@@ -295,14 +324,31 @@ Page({
         if(res.msg[0].ans_node_name=="新闻"){
           str2=res.msg[0].articles[0].description
         }else if(res.msg[0].ans_node_name=="音乐"){
+          istrue=true
+          mus_icon=res.msg[0].pic_url
           str2=res.msg[0].singer_name+res.msg[0].song_name
           bgam.src = res.msg[0].music_url
           bgam.play()
+          console.log(res.msg[0].music_url)
+          setInterval(function() {
+            console.log(bgam.currentTime)
+            that.setData({
+              por:bgam.currentTime/bgam.duration*100
+            })
+         }, 2000);
+        }else{
+          if(res.msg[0].content==""){
+            str2=res.answer
+          }else{
+            str2=res.msg[0].content
+          }
         }
         msgList.push({
           speaker: 'server',
           contentType: 'text',
-          content: str2
+          content: str2,
+          showView: istrue,
+          mu_icon:mus_icon
          })
          this.setData({
           msgList
@@ -319,27 +365,39 @@ Page({
       console.log(kind);
       console.log(app.globalData.uid);
       console.log(that.data.date);
-      wx.request({
-        url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
-        method:'POST',
-        data: {
-          amout:mon,
-          type:kind,
-          fuid:app.globalData.uid,
-          account_date:that.data.date
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
-        },
-        success: function (res) {
-          console.log(res.data)
-        }
-      })
-      // wx.showToast({
-      //   title: '成功',
-      //   icon: 'success',
-      //   duration: 2000//持续的时间
-      // })
+      if(kind!=null&&mon!=null){
+        msgList.push({
+          speaker: 'server',
+          contentType: 'text',
+          content: str2,
+          showView: false,
+          mu_icon:""
+         })
+         this.setData({
+          msgList
+         });
+        wx.request({
+          url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
+          method:'POST',
+          data: {
+            amout:mon,
+            type:kind,
+            fuid:app.globalData.uid,
+            account_date:that.data.date
+          },
+          header: {
+            'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+          },
+          success: function (res) {
+            console.log(res.data)
+          }
+        })
+        wx.showToast({
+          title: '新增账单成功',
+          icon: 'success',
+          duration: 1000//持续的时间
+        })
+      }
  },
  /**
   * 发送点击监听
@@ -352,6 +410,29 @@ Page({
   */
  toBackClick: function() {
   wx.navigateBack({})
+ },
+ back(){
+  bgam.seek(bgam.currentTime-10)
+   
+ },
+ stop(){
+   if(this.data.mus_num==1){
+    bgam.pause()
+    this.setData({
+      mus_num:0,
+      start_img:"../../icon/start.png"
+    })
+   }else{
+    bgam.play()
+    this.setData({
+      mus_num:1,
+      start_img:"../../icon/stop.png"
+    })
+   }
+ 
+ },
+ forward(){
+  bgam.seek(bgam.currentTime+10)
  }
  
 })
