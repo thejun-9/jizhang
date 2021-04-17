@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "setting": {},
     "condition": {
         "plugin": {
@@ -33,4 +34,45 @@
             ]
         }
     }
+=======
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "流水",
+          "pathName": "pages/liushui/liushui",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "流水1",
+          "pathName": "pages/liushui1/liushui1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "记一笔",
+          "pathName": "pages/jiyibi/jiyibi",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/yusuan/yusuan",
+          "pathName": "pages/yusuan/yusuan",
+          "scene": null
+        }
+      ]
+    }
+  }
+>>>>>>> HJY
 }

@@ -1,3 +1,5 @@
+const utilApi=require('../../utils/promiseTest');
+
 Page({
 
     /**
@@ -11,7 +13,7 @@ Page({
         fuid:0,
         type:'',
         account_date:'',
-        array: ['水果', '外卖', '吃屎', '其他'],
+        //array: ['水果', '外卖', '吃屎', '其他'],
         index: 0,
         aid:0
     },
@@ -19,27 +21,40 @@ Page({
         const record=wx.getStorageSync("record").index;
         //console.log(record);
         this.setData({record:record,aid:record[0],content:String(record[2]),fuid:record[1],type:record[3],account_date:record[4]});
-        for(let i = 0;i < this.data.array.length;i++){
+        //aid
+        //fuid
+        //amout
+        //type
+        //account_date
+       /* for(let i = 0;i < this.data.array.length;i++){
             if(this.data.array[i] == record[3]){
                 this.setData({index:i})
             }
-        }
+        }*/
     },
     bindDateChange:function(e){
       //console.log('picker发送选择改变，携带值为',e.detail.value)
       this.setData({
           account_date:e.detail.value
       })
-    },
+    }, 
     bindPickerChange: function (e) {
         //console.log('picker发送选择改变，携带值为', e.detail.value)
+        //console.log(e.detail.value)
         this.setData({
-          index: e.detail.value
+          index: e.detail.value,
+          type:array[index] 
         })
+        console.log(this.data.index)
     },
     //删除消费记录
     hendleTap:function(){
         console.log(this.data.aid+"我一会必删除你")
+        utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/DeleteAccountinfo?aid='+this.data.aid) 
+        // 使用.then处理结果 
+        .then(res => { 
+          console.log(res.data)
+        }) 
     },
     //点击输入框，键盘显示
     showKeyboard() {
@@ -107,16 +122,16 @@ Page({
     payTap(){
         var that=this
         wx.request({
-          url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
+          url: 'http://127.0.0.1:8088/WxDemo/UpdateAccountinfo',
           method:'POST',
           data: {
+            aid:that.data.record[0],
             amout:that.data.content,
-            type:that.data.type,
-            fuid:that.data.fuid,
+            type:that.data.record[3],
+            //fuid:getApp().globalData.uid,
             account_date:that.data.account_date
           },
           header: {
-              //要改
             'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
           },
           success: function (res) {

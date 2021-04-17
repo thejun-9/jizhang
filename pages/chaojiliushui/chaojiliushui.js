@@ -6,20 +6,25 @@ var total_remain=0;
 var cal;
 var total_month;
 var total_year;
+const utilApi=require('../../utils/promiseTest');
+var app = getApp();
 Page({
-
+ 
   /**
    * 页面的初始数据
    */
   data: {
-    data1:[[7,2,'其它',-51.0,'2020-09-05'],
+    data1:[]/*[[7,2,'其它',-51.0,'2020-09-05'],
     [7,2,'其它',-51.0,'2020-09-05'],
     [7,2,'其它',-51.0,'2020-09-05'],
                 [7,2,'其它',-51.0,'2020-09-05'],
                 [11,2,'其它',76.0,'2020-09-10'],
                 [11,2,'其它',76.0,'2020-09-10'],
                 [13,2,'其它',78.0,'2020-09-17'],
-                [13,2,'其它',78.0,'2020-09-17']],
+                [13,2,'其它',78.0,'2020-09-17']]*/,
+    amoutList:[],
+    condition:'account_date desc',
+    date:'2020-05',
     list:[][5],
     str:"",
    // mylist:[{date:'2020-09-10',type:'其他',mon:'-51.0',change:-1}]
@@ -30,6 +35,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryAccountinfo?fuid='+app.globalData.uid+'&date='+this.data.date+'&condition='+this.data.condition) 
+    // 使用.then处理结果 
+    .then(res => { 
+      this.setData({
+        amoutList: res.data
+      })
+      //this.createCharts();
+    }) 
+    console.log(this.data.amoutList)
+
     let j=0;
     let total_mon=0;
     let pay_mon=0;
@@ -151,57 +167,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    console.log()
-    let j=0;
-    let total_mon=0;
-    let str="sefes";
-  
-      
-  
-    for(let i=0;i<this.data.data1.length;i++){
-      if(i+1<this.data.data1.length&&i>=j&&this.data.data1[i][4]==this.data.data1[i+1][4]){
-        total_mon = this.data.data1[i][3]+this.data.data1[i+1][3];
-        for(j=i+2;j<this.data.data1.length;j++){
-          if(this.data.data1[j][4]==this.data.data1[j-1][4]){
-            total_mon = total_mon+this.data.data1[j][3];
-          }
-        }
-        this.data.mylist.push({
-          data:this.data.data1[i][4],
-          type:"",
-          mon:total_mon,
-          change:0
-        })
-        this.data.mylist.push({
-          data:this.data.data1[i][4],
-          type:this.data.data1[i][2],
-          mon:this.data.data1[i][3],
-          change:1
-        })
-      }
-      else if((i+1<this.data.data1.length&&i-1>=0&&this.data.data1[i][4]!=this.data.data1[i+1][4]&&this.data.data1[i][4]!=this.data.data1[i-1][4])||(i==0&&i+1<this.data.data1.length&&this.data.data1[i][4]!=this.data.data1[i+1][4])||(i==this.data.data1.length-1&&i-1>=0&&this.data.data1[i][4]!=this.data.data1[i-1][4])){
-        this.data.mylist.push({
-          data:this.data.data1[i][4],
-          type:"",
-          mon:this.data.data1[i][3],
-          change:0
-        })
-        this.data.mylist.push({
-          data:this.data.data1[i][4],
-          type:this.data.data1[i][2],
-          mon:this.data.data1[i][3],
-          change:1
-        })
-      }else{
-        this.data.mylist.push({
-          data:this.data.data1[i][4],
-          type:this.data.data1[i][2],
-          mon:this.data.data1[i][3],
-          change:1
-        })
-      }
-      }
-      console.log(this.data.mylist[2].data)
+    
   },
 
   /**

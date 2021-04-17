@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
 
   /**
@@ -7,17 +9,17 @@ Page({
       content: '',//输入内容
       KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
       keyShow: true,//默认显示键盘
-      fuid:'4',
+      //fuid:'4',
       type:'其它',
       account_date:'2020-04-12'
   },
+  //点击输入框，键盘显示
   bindDateChange:function(e){
     console.log('picker发送选择改变，携带值为',e.detail.value)
     this.setData({
         account_date:e.detail.value
     })
   },
-  //点击输入框，键盘显示
   showKeyboard() {
       var _this = this
       _this.setData({
@@ -73,21 +75,44 @@ Page({
     //var ename = e.detail;
     var ename = e.detail.ename.name;
     console.log(ename);
+    this.setData({
+      type:ename
+    })
   },
   // 付款
-  payTap(){
-      var _this = this;
-      wx.showToast({
-        title: '成功',
-        icon: 'success',
-        duration: 2000//持续的时间
+  payTap(){ 
+      var that=this
+      //console.log(that.data.content);
+      wx.request({
+        url: 'http://127.0.0.1:8088/WxDemo/AddAccountinfo',
+        method:'POST',
+        data: {
+          amout:'-'+that.data.content,
+          type:that.data.type,
+          fuid:app.globalData.uid,
+          account_date:that.data.account_date
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        success: function (res) {
+          console.log(res.data)
+          that.setData({
+            condition:res.data,
+          })
+        }
       })
-      console.log(_this.data.content)
+      // wx.showToast({
+      //   title: '成功',
+      //   icon: 'success',
+      //   duration: 2000//持续的时间
+      // })
+      console.log(that.data.content)
   },
   zhichu()
   {
         wx.navigateTo({
-          url: '../../pages/shouru/shouru',
+          url: '../../pages/shouru/shouru?date='+this.data.account_date,
         })
   }
  

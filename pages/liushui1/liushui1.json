@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "select":"../../components/select/select"
+  },
   "navigationBarTitleText": "流水"
 }

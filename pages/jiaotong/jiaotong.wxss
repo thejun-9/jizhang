@@ -8,7 +8,6 @@
   display:flex;
   flex-direction: row;
   height: 90px;
-  border:1px solid whitesmoke;
 }
 .column-box{
   display: flex;
@@ -144,12 +143,13 @@
 }
 
 .content {
-  font-size: 50rpx;
+  font-size: 30rpx;
   line-height: 90rpx;
   font-weight: bold;
   margin-top: 8rpx;
   /* width:120px; */
 }
+
 
 .content.place {
   font-size: 40rpx;

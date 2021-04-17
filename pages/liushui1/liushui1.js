@@ -1,38 +1,54 @@
 // pages/liushui1/liushui1.js
-Page({
+const utilApi=require('../../utils/promiseTest');
+var app = getApp();
 
+Page({
+ 
     /**
      * 页面的初始数据
      */
     data: {
-    accountinfo:[[1,1,-77,"其他","2020-04-01"],[2,1,28,"其他","2020-04-01"],
-    [3,1,-32,"其他","2020-04-01"],[4,1,72,"其他","2020-04-03"],
-    [5,1,81,"其他","2020-04-03"],[7,1,-51,"其他","2020-04-03"],
-    [8,1,-70,"其他","2020-04-05"],[9,1,-77,"其他","2020-04-05"],
-    [10,1,-38,"其他","2020-04-07"],[11,1,76,"其他","2020-04-07"],
-    [10,1,-38,"其他","2020-04-07"],[11,1,76,"其他","2020-04-07"],
-    [10,1,-38,"其他","2020-04-07"],[11,1,76,"其他","2020-04-07"]],
-    account_date:'2021-04',
+        amoutList:[],
+    accountinfo:[],
+    date:'2020-05',
     space:'       ',
+    condition:'amout',
+    result: [
+        {
+          city_id: '001',
+          city_name: '北京'
+        }, {
+          city_id: '002',
+          city_name: '上海'
+        }, {
+          city_id: '003',
+          city_name: '深圳'
+     }
+      ],
     tabs:[
         {id:0,
         name:"日期升序",
+        orderName:'account_date',
         isActive:true},
         {id:1,
         name:"日期降序",
+        orderName:'account_date desc',
         isActive:false},
         {id:2,
         name:"金额升序",
+        orderName:'amout',
         isActive:false},
         {id:3,
         name:"金额降序",
+        orderName:'amout desc',
         isActive:false}
       ]
     },
     bindDateChange:function(e){
         this.setData({
-            account_date:e.detail.value
+            date:e.detail.value
         })
+        this.onLoad()
     },
     handleItemTab(e){
         const {index}=e.currentTarget.dataset;
@@ -42,6 +58,10 @@ Page({
         /**
          * 用wx.request根据要求(月份，排序方式)请求数据
          */
+        this.setData({
+            condition:tabs[index].orderName
+        })
+        this.onLoad();
     },
     handleItem(e){
         //console.log(e);
@@ -54,7 +74,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+     //   console.log(app.globalData.uid)
+        utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryAccountinfo?fuid='+app.globalData.uid+'&date='+this.data.date+'&condition='+this.data.condition) 
+        // 使用.then处理结果 
+        .then(res => { 
+          this.setData({
+            amoutList: res.data
+          })
+          //this.createCharts();
+        }) 
+       // console.log(this.data.amoutList)
     },
 
     /**
@@ -89,7 +118,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+      this.onLoad()
     },
 
     /**

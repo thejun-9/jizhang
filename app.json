@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/check/check",
     "pages/main/main",
     "pages/jiyibi/jiyibi",
     "pages/yusuan/yusuan",
@@ -8,10 +9,12 @@
    
     "pages/sancan/sancan", 
     "pages/liushui/liushui",
-    "pages/charts/charts",
     "pages/liushui1/liushui1",
     "pages/update/update",
     "pages/logs/logs",
+    "pages/canyin1/canyin1",
+    "pages/charts/charts",
+    "pages/register/register",
     "pages/jiaotong/jiaotong",
     "pages/gouwu/gouwu",
     "pages/yiliao/yiliao",
@@ -29,13 +32,13 @@
   },
   "tabBar": {
     "list": [{
-      "pagePath": "pages/main/main",
+      "pagePath": "pages/charts/charts",
       "text": "图表",
       "iconPath": "icon/tubiao.png",
       "selectedIconPath": "icon/tubiao.png"
     },
     {
-      "pagePath": "pages/chaojiliushui/chaojiliushui",
+      "pagePath": "pages/liushui1/liushui1",
       "text": "流水",
       "iconPath": "icon/liushui.png",
       "selectedIconPath": "icon/liushui.png"
