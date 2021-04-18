@@ -1,6 +1,6 @@
 // pages/sancan/sancan.js
 const utilApi=require('../../utils/promiseTest');
-const app= getApp()
+var app= getApp();
 Page({
 
   /**
@@ -9,7 +9,7 @@ Page({
   data: {
     amoutList:'',
     outcomeList:'',
-    fuid:app.globalData.uid,
+    fuid:'2',
     type:'traffic',
     typeDetail:'',
     date:'2021-04',

@@ -1,6 +1,8 @@
 // pages/yusuan/yusuan.js
+
 const utilApi=require('../../utils/promiseTest');
-const app= getApp()
+var app= getApp();
+console.log(app)
 Page({
 
   data: {
@@ -10,7 +12,7 @@ Page({
     sumOutcome:0.00,
     leftBudget:0.00,
     index:0,
-    fuid:app.globalData.uid,
+    fuid:'2',
     date:'2020-05',
     part:[
       {
@@ -73,16 +75,17 @@ Page({
         url:"../../pages/canyin1",
         icon:"../../icon/qita.png"       
       }],
-    content:0
+    content:''
   },
         // 生命周期函数onload用于监听页面加载 
         onLoad: function() {
           this.setData({
             sumBudget:0.00,
             sumOutcome:0.00,
-            leftBudget:0.00
+            leftBudget:0.00,
           })
-          var that=this;
+          //console.log('app',app)
+          var that=this
           for(let i=0;i<that.data.part.length;i++){
             var type=that.data.part[i].type
             utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/QueryBudget?fuid='+that.data.fuid+'&date='+that.data.date+'&type='+type) 
@@ -155,7 +158,7 @@ Page({
     //  console.log(app.globalData.content) //打印options,可以看到title的值可以获取到
     // var content=this.data.content;
     this.setData({
-    content: app.globalData.content //为页面中title赋值
+    //content: app.globalData.content //为页面中title赋值
     })
 
     },

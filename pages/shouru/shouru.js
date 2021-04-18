@@ -9,7 +9,7 @@ Page({
         content: '',//输入内容
         KeyboardKeys: [1, 2, 3 , 4, 5, 6, 7, 8, 9, 0,'·'],
         keyShow: true,//默认显示键盘
-        fuid:app.globalData.uid,
+        fuid:'2',
         type:'',
         account_date:'2020-04-12'
     },

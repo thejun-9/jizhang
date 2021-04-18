@@ -1,4 +1,5 @@
 var app = getApp();
+const utilApi=require('../../utils/promiseTest');
 
 Page({
 
@@ -55,9 +56,24 @@ Page({
     }else if(_this.data.password!=_this.data.passwordAgain){
       _this.setData({
         showContent:'两次输入密码不一致'
-      })
+      }) 
     }else{
-      wx.request({
+      utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/AddUserinfo?phone='+_this.data.phone+'&password='+_this.data.password) 
+      // 使用.then处理结果 
+      .then(res => { 
+        this.setData({
+          showContent: res.data
+        })
+        if(_this.data.showContent!='error'){
+          _this.start()
+        }else{
+          var phone=_this.data.phone
+          _this.setData({
+            showContent:'用户'+phone+'已注册'
+          })
+        }
+      }) 
+      /*wx.request({
         url: 'http://127.0.0.1:8088/WxDemo/AddUserinfo',
         method:'get',
         data: {
@@ -82,13 +98,13 @@ Page({
           }
         }
       })
-      this.start();
+      this.start();*/
     }
     //console.log(_this.data.showContent)
   },
 
   start:function(){
-
+    app.globalData.uid=this.data.showContent
     wx.switchTab({
       url: '../../pages/jiyibi/jiyibi',
     })

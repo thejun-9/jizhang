@@ -1,4 +1,5 @@
 var app = getApp();
+const utilApi=require('../../utils/promiseTest');
 
 Page({
 
@@ -31,8 +32,24 @@ Page({
   },
   
   login: function(){
-    const _this = this
-    wx.request({
+    var _this = this
+    utilApi.requestPromise('http://127.0.0.1:8088/WxDemo/Check?phone='+_this.data.phone+'&password='+_this.data.password) 
+    // 使用.then处理结果 
+    .then(res => { 
+      _this.setData({
+        showContent: res.data
+      })
+      if(_this.data.showContent!='该手机号未注册'&&_this.data.showContent!='密码错误'){
+        app.globalData.uid=this.data.showContent
+        _this.toMain()
+        /*getApp().globalData.uid=_this.data.showContent
+        console.log(app.globalData.uid)
+        wx.switchTab({
+          url: '../../pages/jiyibi/jiyibi'
+        })*/
+      }
+    }) 
+    /*wx.request({
       url: 'http://127.0.0.1:8088/WxDemo/Check',
       method:'get',
       data: {
@@ -55,6 +72,13 @@ Page({
           })
         }
       }
+    })*/
+  },
+
+  toMain:function(){
+    //console.log(app.globalData.uid)
+    wx.switchTab({
+      url: '../../pages/jiyibi/jiyibi'
     })
   },
 
